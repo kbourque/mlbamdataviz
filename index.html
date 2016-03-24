@@ -6,10 +6,12 @@
         <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
  
         <link href="http://getbootstrap.com/examples/justified-nav/justified-nav.css" rel="stylesheet">
- 
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
         <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     </head>
     <body>
+            <h1>BI + MLB</h1>
+            <h2>Currently, only Babe Ruth's stats are available. Click on the drop down menu to scroll through them.</h2>
             <div class="graph">
                 <!-- <svg id="visualisation" width="1000" height="500"></svg> -->
             </div>
@@ -17,11 +19,15 @@
                 <option value="v1">WAR</option>
                 <option value="v2">Homers</option>
                 <option value="v3">Hits</option>
-                <option value="v4">Ribbys</option>
+                <option value="v4">RBIs</option>
+                <option value="v5">Runs</option>
         <style type="text/css">
+
             body {
-                font: 14px sans-serif;
+                font-size: 14px;
+                font-family: 'Open Sans', sans-serif;
             }
+            /*for path*/
             .axis path,
             .axis line {
                 fill: none;
@@ -51,13 +57,22 @@
 
             var newData;
 
+            var v1 = 'WAR';
+            var v2 = 'Homers';
+            var v3 = 'Hits';
+            var v4 = 'RBIs';
+            var v5 = 'Runs';
+
 
             //everything relying on data within baberuth.csv must be contained here
             d3.csv("baberuth.csv", function(data){
                 // importing data from CSV file
                 data.forEach(function(d){ d['Year'] = +d['Year']; }); 
                 data.forEach(function(d){ d['WAR'] = +d['WAR']; });
-                data.forEach(function(d){d['Homers'] = +d['Homers']}); 
+                data.forEach(function(d){d['Homers'] = +d['Homers']});
+                data.forEach(function(d){d['Hits'] = +d['Hits']});
+                data.forEach(function(d){d['RBIs'] = +d['RBIs']});
+                data.forEach(function(d){d['Runs'] = +d['Runs']});
                 console.log(data);  
                 dataset3 = data;
                 padding = 50;
@@ -143,23 +158,26 @@
                 // now add titles to the axes
                 vis.append("text")
                     .attr("text-anchor", "middle") 
-                    .attr("transform", "translate("+ (padding/2) +","+(h2/2)+")rotate(-90)")
+                    .attr("transform", "translate("+ (padding/3+10) +","+(h2/2)+")rotate(-90)")
                     .text("WAR");
                 vis.append("text")
                     .attr("text-anchor", "middle")  
                     .attr("transform", "translate("+ (w2/2) +","+(h2)+")")
                     .text("Year");
 
-
+                //triggered when option is changed on drop down menu
                 d3.select("#select-list")
                     .on('change', function() {
-                        newData = this;
-                        updateLegend();
+                        newData = eval(d3.select(this).property('value'));
+                        updateLegend(newData);
                     });
 
-                function updateLegend() {
+                /* there is a lot of repeated code here bc I currently don't know how to properly extract
+                the data after i click on the drop down menu. will table for later. */
+                function updateLegend(newData) {
                     //updating scale domains
-                    xScale.domain([d3.min(dataset3, function(d) { return d.Year; }), d3.max(dataset3, function(d) { return d.Year; })])
+                    if (newData == 'Homers') {
+                        xScale.domain([d3.min(dataset3, function(d) { return d.Year; }), d3.max(dataset3, function(d) { return d.Year; })])
                          .range([padding, w2-padding*2]);
                     yScale.domain([0, d3.max(dataset3, function(d) { return d.Homers; })])
                          .range([h2-padding, padding]);
@@ -183,13 +201,118 @@
                         return yScale(d.Homers);
                       })
                       .interpolate("cardinal");
+                    }
+
+                    if (newData == 'WAR') {
+                        xScale.domain([d3.min(dataset3, function(d) { return d.Year; }), d3.max(dataset3, function(d) { return d.Year; })])
+                         .range([padding, w2-padding*2]);
+                    yScale.domain([0, d3.max(dataset3, function(d) { return d.WAR; })])
+                         .range([h2-padding, padding]);
+
+                    vis.selectAll("circle")
+                        .data(dataset3)
+                        .transition()
+                        .duration(1000)
+                        .attr("cx", function(d) {
+                            return xScale(d.Year);
+                        })
+                        .attr("cy", function(d) {
+                            return yScale(d.WAR);
+                        });
+
+                    lineGen = d3.svg.line()
+                      .x(function(d) {
+                        return xScale(d.Year);
+                      })
+                      .y(function(d) {
+                        return yScale(d.WAR);
+                      })
+                      .interpolate("cardinal");
+                    }
+                    if (newData == 'Hits') {
+                        xScale.domain([d3.min(dataset3, function(d) { return d.Year; }), d3.max(dataset3, function(d) { return d.Year; })])
+                         .range([padding, w2-padding*2]);
+                    yScale.domain([0, d3.max(dataset3, function(d) { return d.Hits; })])
+                         .range([h2-padding, padding]);
+
+                    vis.selectAll("circle")
+                        .data(dataset3)
+                        .transition()
+                        .duration(1000)
+                        .attr("cx", function(d) {
+                            return xScale(d.Year);
+                        })
+                        .attr("cy", function(d) {
+                            return yScale(d.Hits);
+                        });
+
+                    lineGen = d3.svg.line()
+                      .x(function(d) {
+                        return xScale(d.Year);
+                      })
+                      .y(function(d) {
+                        return yScale(d.Hits);
+                      })
+                      .interpolate("cardinal");
+                    }
+                    if (newData == 'Runs') {
+                        xScale.domain([d3.min(dataset3, function(d) { return d.Year; }), d3.max(dataset3, function(d) { return d.Year; })])
+                         .range([padding, w2-padding*2]);
+                    yScale.domain([0, d3.max(dataset3, function(d) { return d.Runs; })])
+                         .range([h2-padding, padding]);
+
+                    vis.selectAll("circle")
+                        .data(dataset3)
+                        .transition()
+                        .duration(1000)
+                        .attr("cx", function(d) {
+                            return xScale(d.Year);
+                        })
+                        .attr("cy", function(d) {
+                            return yScale(d.Runs);
+                        });
+
+                    lineGen = d3.svg.line()
+                      .x(function(d) {
+                        return xScale(d.Year);
+                      })
+                      .y(function(d) {
+                        return yScale(d.Runs);
+                      })
+                      .interpolate("cardinal");
+                    }
+                    if (newData == 'RBIs') {
+                        xScale.domain([d3.min(dataset3, function(d) { return d.Year; }), d3.max(dataset3, function(d) { return d.Year; })])
+                         .range([padding, w2-padding*2]);
+                    yScale.domain([0, d3.max(dataset3, function(d) { return d.RBIs; })])
+                         .range([h2-padding, padding]);
+
+                    vis.selectAll("circle")
+                        .data(dataset3)
+                        .transition()
+                        .duration(1000)
+                        .attr("cx", function(d) {
+                            return xScale(d.Year);
+                        })
+                        .attr("cy", function(d) {
+                            return yScale(d.RBIs);
+                        });
+
+                    lineGen = d3.svg.line()
+                      .x(function(d) {
+                        return xScale(d.Year);
+                      })
+                      .y(function(d) {
+                        return yScale(d.RBIs);
+                      })
+                      .interpolate("cardinal");
+                    }
 
                     d3.selectAll(".lines")
                         .transition()
                         .duration(1000)
                         .attr('d', lineGen(data));
-                        
-
+                    
                     //Update X axis
                     vis.select("#xaxis")
                         .transition()
