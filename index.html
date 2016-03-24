@@ -13,16 +13,20 @@
             <div class="graph">
                 <!-- <svg id="visualisation" width="1000" height="500"></svg> -->
             </div>
+            <select id="select-list">
+                <option value="v1">WAR</option>
+                <option value="v2">Homers</option>
+                <option value="v3">Hits</option>
+                <option value="v4">Ribbys</option>
         <style type="text/css">
+            body {
+                font: 14px sans-serif;
+            }
             .axis path,
             .axis line {
                 fill: none;
                 stroke: black;
                 shape-rendering: crispEdges;
-            }
-            .axis text {
-                font-family: sans-serif;
-                font-size: 11px;
             }
         </style>
         <script type="text/javascript">
@@ -45,13 +49,18 @@
             var svg2;
             var vis;
 
+            var newData;
+
+
+            //everything relying on data within baberuth.csv must be contained here
             d3.csv("baberuth.csv", function(data){
                 // importing data from CSV file
                 data.forEach(function(d){ d['Year'] = +d['Year']; }); 
-                data.forEach(function(d){ d['WAR'] = +d['WAR']; }); 
+                data.forEach(function(d){ d['WAR'] = +d['WAR']; });
+                data.forEach(function(d){d['Homers'] = +d['Homers']}); 
                 console.log(data);  
                 dataset3 = data;
-                padding = 30;
+                padding = 50;
                 w2 = 1000,
                 h2 = 500,
                 margin = {
@@ -69,46 +78,52 @@
                          .domain([0, d3.max(dataset3, function(d) { return d.WAR; })])
                          .range([h2-padding, padding]);
 
-                // adding x-axis
+                // x-axis and y-axis connected to respective scales
                 xAxis = d3.svg.axis()
                         .scale(xScale)
                         .orient("bottom")
                         .tickFormat(d3.format("d"))
                         .ticks(dataset3.length);
-                      
+    
                 yAxis = d3.svg.axis()
                         .scale(yScale)
-                        .orient("left")
-                        .ticks(5);
+                        .orient("left");
+
                 vis = d3.select('.graph')
                         .append("svg")
                         .attr('width', w2)
                         .attr('height', h2);
-
+                // attaching axes to DOM, x and y axis respectively
                 vis.append("g")
                 .attr("class", "axis")
+                .attr("id", "xaxis")
                 .attr("transform", "translate(0," + (h2 - padding) + ")")
                 .call(xAxis);
 
                 vis.append("g")
                 .attr("class", "axis")
+                .attr("id", "yaxis")
                 .attr("transform", "translate(" + padding + ",0)")
                 .call(yAxis);
 
+                // path
                 lineGen = d3.svg.line()
                   .x(function(d) {
                     return xScale(d.Year);
                   })
                   .y(function(d) {
                     return yScale(d.WAR);
-                  });
+                  })
+                  .interpolate("cardinal");
 
                 vis.append('svg:path')
+                    .attr('class', 'lines')
                   .attr('d', lineGen(data))
-                  .attr('stroke', 'green')
-                  .attr('stroke-width', 2)
+                  .attr('stroke', '#1051B5')
+                  .attr('stroke-width', 4)
                   .attr('fill', 'none');
 
+                // points
                 vis.append("g")
                     .attr("id", "circles")
                     .selectAll("circle")
@@ -118,62 +133,76 @@
                     .attr({
                         cx: function(d) {return xScale(d.Year);},
                         cy: function(d) {return yScale(d.WAR);},
-                        r: 4
+                        r: 8,
+                        // fill: '#E8FFFC',
+                        stroke: '#1051B5',
+                        fill: '#FFFFE4'
+                    })
+                    .attr("stroke-width", "4");
+
+                // now add titles to the axes
+                vis.append("text")
+                    .attr("text-anchor", "middle") 
+                    .attr("transform", "translate("+ (padding/2) +","+(h2/2)+")rotate(-90)")
+                    .text("WAR");
+                vis.append("text")
+                    .attr("text-anchor", "middle")  
+                    .attr("transform", "translate("+ (w2/2) +","+(h2)+")")
+                    .text("Year");
+
+
+                d3.select("#select-list")
+                    .on('change', function() {
+                        newData = this;
+                        updateLegend();
                     });
 
-            });
+                function updateLegend() {
+                    //updating scale domains
+                    xScale.domain([d3.min(dataset3, function(d) { return d.Year; }), d3.max(dataset3, function(d) { return d.Year; })])
+                         .range([padding, w2-padding*2]);
+                    yScale.domain([0, d3.max(dataset3, function(d) { return d.Homers; })])
+                         .range([h2-padding, padding]);
+
+                    vis.selectAll("circle")
+                        .data(dataset3)
+                        .transition()
+                        .duration(1000)
+                        .attr("cx", function(d) {
+                            return xScale(d.Year);
+                        })
+                        .attr("cy", function(d) {
+                            return yScale(d.Homers);
+                        });
+
+                    lineGen = d3.svg.line()
+                      .x(function(d) {
+                        return xScale(d.Year);
+                      })
+                      .y(function(d) {
+                        return yScale(d.Homers);
+                      })
+                      .interpolate("cardinal");
+
+                    d3.selectAll(".lines")
+                        .transition()
+                        .duration(1000)
+                        .attr('d', lineGen(data));
+                        
+
+                    //Update X axis
+                    vis.select("#xaxis")
+                        .transition()
+                        .duration(1000)
+                        .call(xAxis);
                     
-
-                // xAxis = d3.svg.axis();
-
-                // // //each axis needs to be told on what scale to operate
-                // xAxis.scale(xScale);
-                // // // where labels appear
-                // xAxis.orient("bottom")
-                //     .ticks(5);
-                // yAxis = d3.svg.axis()
-                //                 .scale(yScale)
-                //                 .orient("left")
-                //                 .ticks(5);
-                // svg2 = d3.select(".graph")
-                //     .append("svg")
-                //     .attr("width", w2)
-                //     .attr("height", h2)
-                // // // svg2.append("g")
-                // // //     .attr("id", "circles")
-                // // //     .attr("clip-path", "url(#chart-area)")
-                // // //     .selectAll("circle")
-                //    .data(dataset3)
-                //    .enter()
-                //    .append("circle")
-                //    .attr({
-                //         cx: function(d) {return xScale(d.Year);},
-                //         cy: function(d) {return yScale(d.WAR);},
-                //         r: 2
-                //    });
-
-                // // //Define clipping path, so that values don't expand past graph
-                // // svg2.append("clipPath")                  //Make a new clipPath
-                // //     .attr("id", "chart-area")           //Assign an ID
-                // //     .append("rect")                     //Within the clipPath, create a new rect
-                // //     .attr("x", 0)                 //Set rect's position and size…
-                // //     .attr("y", 0)
-                // //     .attr("width", w2)
-                // //     .attr("height", h2);
-                // // creating the axes
-                // //Create X axis
-                // svg2.append("g")
-                //     .attr("class", "axis")
-                //     .attr("id", "xaxis")
-                //     .attr("transform", "translate(0," + (h2 - padding) + ")")
-                //     .call(xAxis);
-            
-                // //Create Y axis
-                // svg2.append("g")
-                //     .attr("class", "axis")
-                //     .attr("id", "yaxis")
-                //     .attr("transform", "translate(" + padding + ",0)")
-                //     .call(yAxis);
+                    //Update Y axis
+                    vis.select("#yaxis")
+                        .transition()
+                        .duration(1000)
+                        .call(yAxis);
+                }
+                    });
         </script>
     </body>
 </html>
