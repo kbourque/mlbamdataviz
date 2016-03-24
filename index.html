@@ -75,7 +75,7 @@
                 data.forEach(function(d){d['Runs'] = +d['Runs']});
                 console.log(data);  
                 dataset3 = data;
-                padding = 50;
+                padding = 65;
                 w2 = 1000,
                 h2 = 500,
                 margin = {
@@ -157,6 +157,7 @@
 
                 // now add titles to the axes
                 vis.append("text")
+                    .attr("class", "yLabel")
                     .attr("text-anchor", "middle") 
                     .attr("transform", "translate("+ (padding/3+10) +","+(h2/2)+")rotate(-90)")
                     .text("WAR");
@@ -324,6 +325,16 @@
                         .transition()
                         .duration(1000)
                         .call(yAxis);
+
+
+                    vis.selectAll(".yLabel")
+                        .remove();
+
+                    vis.append("text")
+                    .attr("class", "yLabel")
+                    .attr("text-anchor", "middle") 
+                    .attr("transform", "translate("+ (padding/3+10) +","+(h2/2)+")rotate(-90)")
+                    .text(newData);
                 }
                     });
         </script>
