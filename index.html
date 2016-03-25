@@ -2,16 +2,28 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>mlbamdv</title>
-        <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
- 
-        <link href="http://getbootstrap.com/examples/justified-nav/justified-nav.css" rel="stylesheet">
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+        <title>BI + MLB</title>
+        <link rel="stylesheet" type="text/css" href="/css/last.css">
+        <!--<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="http://getbootstrap.com/examples/justified-nav/justified-nav.css" rel="stylesheet">-->
+        <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
         <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     </head>
     <body>
-            <h1>BI + MLB</h1>
-            <h2>Currently, only Babe Ruth's stats are available. Click on the drop down menu to scroll through them.</h2>
+      <header class="top_header">
+  			<div class="header_container">
+  				<nav class="menu_container">
+  					<a><img class="menu_logo" src="media/menu.png"></a>
+  					<a><div class="sign_container">Sign in</div></a>
+  				</nav>
+  				<div class="logo_container">
+  					<div class="logo_container2">
+  						<img class="header_logo" src="media/header_logo.png">
+  					</div>
+  				</div>
+  			</div>
+  		</header>
+      <h2>Currently, only Babe Ruth's stats are available. Click on the drop down menu to scroll through them.</h2>
             <div class="graph">
                 <!-- <svg id="visualisation" width="1000" height="500"></svg> -->
             </div>
@@ -21,22 +33,8 @@
                 <option value="v3">Hits</option>
                 <option value="v4">RBIs</option>
                 <option value="v5">Runs</option>
-        <style type="text/css">
 
-            body {
-                font-size: 14px;
-                font-family: 'Open Sans', sans-serif;
-            }
-            /*for path*/
-            .axis path,
-            .axis line {
-                fill: none;
-                stroke: black;
-                shape-rendering: crispEdges;
-            }
-        </style>
         <script type="text/javascript">
-
 
             // must be declared outside
             var dataset3;
@@ -67,13 +65,13 @@
             //everything relying on data within baberuth.csv must be contained here
             d3.csv("baberuth.csv", function(data){
                 // importing data from CSV file
-                data.forEach(function(d){ d['Year'] = +d['Year']; }); 
+                data.forEach(function(d){ d['Year'] = +d['Year']; });
                 data.forEach(function(d){ d['WAR'] = +d['WAR']; });
                 data.forEach(function(d){d['Homers'] = +d['Homers']});
                 data.forEach(function(d){d['Hits'] = +d['Hits']});
                 data.forEach(function(d){d['RBIs'] = +d['RBIs']});
                 data.forEach(function(d){d['Runs'] = +d['Runs']});
-                console.log(data);  
+                console.log(data);
                 dataset3 = data;
                 padding = 65;
                 w2 = 1000,
@@ -99,7 +97,7 @@
                         .orient("bottom")
                         .tickFormat(d3.format("d"))
                         .ticks(dataset3.length);
-    
+
                 yAxis = d3.svg.axis()
                         .scale(yScale)
                         .orient("left");
@@ -158,11 +156,11 @@
                 // now add titles to the axes
                 vis.append("text")
                     .attr("class", "yLabel")
-                    .attr("text-anchor", "middle") 
+                    .attr("text-anchor", "middle")
                     .attr("transform", "translate("+ (padding/3+10) +","+(h2/2)+")rotate(-90)")
                     .text("WAR");
                 vis.append("text")
-                    .attr("text-anchor", "middle")  
+                    .attr("text-anchor", "middle")
                     .attr("transform", "translate("+ (w2/2) +","+(h2)+")")
                     .text("Year");
 
@@ -313,13 +311,13 @@
                         .transition()
                         .duration(1000)
                         .attr('d', lineGen(data));
-                    
+
                     //Update X axis
                     vis.select("#xaxis")
                         .transition()
                         .duration(1000)
                         .call(xAxis);
-                    
+
                     //Update Y axis
                     vis.select("#yaxis")
                         .transition()
@@ -332,7 +330,7 @@
 
                     vis.append("text")
                     .attr("class", "yLabel")
-                    .attr("text-anchor", "middle") 
+                    .attr("text-anchor", "middle")
                     .attr("transform", "translate("+ (padding/3+10) +","+(h2/2)+")rotate(-90)")
                     .text(newData);
                 }
