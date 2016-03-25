@@ -1,0 +1,141 @@
+/*for path*/
+.axis path,
+.axis line {
+    fill: none;
+    stroke: black;
+    shape-rendering: crispEdges;
+}
+
+body {
+  height: 100%;
+  background-color: #BB80E2;
+  font-family: "Lato", "Helvetica", sans-serif;
+}
+
+.top_header {
+  top: 0;
+  right: 0;
+  left: 0;
+  position: fixed;
+  height: 70px;
+  z-index: 99;
+  background-color: white;
+  border-bottom: 1px solid #cccccc;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.header_container {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.logo_container {
+  height: 60px;
+  width: 100%;
+  vertical-align: middle;
+  margin: 5px 0;
+}
+.logo_container2 {
+  height: 60px;
+  width: 170px;
+  margin: auto;
+}
+.header_logo {
+  width: 170px;
+  margin: 10px auto 0;
+}
+
+.menu_container {
+  height: 60px;
+  width: 100%;
+  float: left;
+  margin: 0 10px;
+  position: absolute;
+}
+.menu_logo {
+  height: 30px;
+  margin: 15px auto;
+}
+
+.sign_container {
+  height: 20px;
+  width: 72px;
+  border: 2px solid #B36AE2;
+  border-radius: 30px;
+  color: #B36AE2;
+  font-size: 1em;
+  float: right;
+  padding: 10px;
+  margin: 10px 15px;
+  text-align: center;
+  z-index: 100;
+}
+
+.sign_container:hover {
+  background-color: #f4eafa;
+}
+
+.poster_section {
+  margin: 100px auto;
+  max-width: 1000px;
+}
+.poster_image {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  max-width: 1000px;
+}
+
+.question {
+  max-width: 1000px;
+  margin: 0;
+}
+
+.answers {
+  max-width: 500px;
+  margin: 40px auto;
+}
+
+.answer_yes {
+  height: 30px;
+  width: 150px;
+  border: 3px solid white;
+  border-radius: 40px;
+  background-color: #8CC63F;
+  font-size: 1.5em;
+  float: left;
+  padding: 10px;
+  margin: 10px 15px;
+  text-align: center;
+  color: white;
+}
+.answer_no {
+  height: 30px;
+  width: 150px;
+  border: 3px solid white;
+  border-radius: 40px;
+  background-color: #F3522C;
+  font-size: 1.5em;
+  float: right;
+  padding: 10px;
+  margin: 10px 15px;
+  text-align: center;
+  color: white;
+}
+
+h1 {
+  font-family: "Lato", "Helvetica", sans-serif;
+  font-size: 4em;
+  font-weight: 300;
+  color: white;
+  margin: 0;
+}
+
+h3 {
+  font-family: "Lato", "Helvetica", sans-serif;
+  font-size: 1.5em;
+  font-weight: 400;
+  color: white;
+  margin: 0 0 0 7px;
+}

@@ -3,12 +3,26 @@
     <head>
         <meta charset="utf-8">
         <title>BI + MLB</title>
-        <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="http://getbootstrap.com/examples/justified-nav/justified-nav.css" rel="stylesheet">
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="/main.css">
+        <!--<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="http://getbootstrap.com/examples/justified-nav/justified-nav.css" rel="stylesheet">-->
+        <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
         <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     </head>
     <body>
+      <header class="top_header">
+        <div class="header_container">
+          <nav class="menu_container">
+            <a><img class="menu_logo" src="media/menu.png"></a>
+            <a><div class="sign_container">About</div></a>
+          </nav>
+          <div class="logo_container">
+            <div class="logo_container2">
+              <img class="header_logo" src="media/header_logo.png">
+            </div>
+          </div>
+        </div>
+      </header>
             <h1>BI + MLB</h1>
             <h2>Currently, only Babe Ruth's stats are available. Click on the drop down menu to scroll through them.</h2>
 
@@ -24,20 +38,6 @@
                     <!-- <svg id="visualisation" width="1000" height="500"></svg> -->
                 </div>
 
-        <style type="text/css">
-
-            body {
-                font-size: 14px;
-                font-family: 'Open Sans', sans-serif;
-            }
-            /*for path*/
-            .axis path,
-            .axis line {
-                fill: none;
-                stroke: black;
-                shape-rendering: crispEdges;
-            }
-        </style>
         <script type="text/javascript">
 
 
