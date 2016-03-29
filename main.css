@@ -97,32 +97,7 @@ body {
   margin: 40px auto;
 }
 
-.answer_yes {
-  height: 30px;
-  width: 150px;
-  border: 3px solid white;
-  border-radius: 40px;
-  background-color: #8CC63F;
-  font-size: 1.5em;
-  float: left;
-  padding: 10px;
-  margin: 10px 15px;
-  text-align: center;
-  color: white;
-}
-.answer_no {
-  height: 30px;
-  width: 150px;
-  border: 3px solid white;
-  border-radius: 40px;
-  background-color: #F3522C;
-  font-size: 1.5em;
-  float: right;
-  padding: 10px;
-  margin: 10px 15px;
-  text-align: center;
-  color: white;
-}
+
 
 h1 {
   font-family: "Lato", "Helvetica", sans-serif;
