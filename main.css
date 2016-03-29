@@ -8,7 +8,7 @@
 
 body {
   height: 100%;
-  background-color: #BB80E2;
+  background-color: white;
   font-family: "Lato", "Helvetica", sans-serif;
 }
 
@@ -62,9 +62,9 @@ body {
 .sign_container {
   height: 20px;
   width: 72px;
-  border: 2px solid #B36AE2;
+  border: 2px solid #F15A26;
   border-radius: 30px;
-  color: #B36AE2;
+  color: #F15A26;
   font-size: 1em;
   float: right;
   padding: 10px;
@@ -74,7 +74,7 @@ body {
 }
 
 .sign_container:hover {
-  background-color: #f4eafa;
+  background-color: #fcdacf;
 }
 
 .poster_section {
