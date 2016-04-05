@@ -82,8 +82,8 @@ body {
   left: 0;
   position: fixed;
   max-width: 100px;
-  height: 100%;
-  z-index: 50;
+  height: 500px;
+  z-index: 99;
   background-color: #fcdacf;
   box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3);
   overflow: hidden;
