@@ -77,6 +77,20 @@ body {
   background-color: #fcdacf;
 }
 
+.sidebar {
+  top: 0;
+  left: 0;
+  position: fixed;
+  max-width: 100px;
+  height: 100%;
+  z-index: 50;
+  background-color: #fcdacf;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+
+
 .poster_section {
   margin: 100px auto;
   max-width: 1000px;
