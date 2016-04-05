@@ -8,7 +8,7 @@
 
 body {
   height: 100%;
-  background-color: white;
+  background-color: #f5f8fa;
   font-family: "Lato", "Helvetica", sans-serif;
 }
 
@@ -102,7 +102,9 @@ body {
   max-width: 1000px;
 }
 
-
+.graph {
+  background-color:
+}
 
 
 h1 {
