@@ -95,21 +95,13 @@ body {
   margin: 100px auto;
   max-width: 1000px;
 }
+
 .poster_image {
   margin-top: 20px;
   margin-bottom: 30px;
   max-width: 1000px;
 }
 
-.question {
-  max-width: 1000px;
-  margin: 0;
-}
-
-.answers {
-  max-width: 500px;
-  margin: 40px auto;
-}
 
 
 
