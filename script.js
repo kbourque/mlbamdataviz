@@ -1,3 +1,19 @@
+Skip to content
+This repository
+Search
+Pull requests
+Issues
+Gist
+ @kbourque
+ Unwatch 4
+  Star 1
+  Fork 0 kbourque/mlbamdataviz
+ Code  Issues 0  Pull requests 0  Wiki  Pulse  Graphs  Settings
+Branch: master Find file Copy pathmlbamdataviz/script.js
+39d8852  8 minutes ago
+@kbourque kbourque added all the players
+1 contributor
+RawBlameHistory     237 lines (208 sloc)  6.37 KB
 // must be declared outside
 var dataset3;
 var margin;
@@ -22,33 +38,26 @@ var v2 = 'Homers';
 var v3 = 'Hits';
 var v4 = 'RBIs';
 var v5 = 'Runs';
+var baber = 'baberuth'
 var albertp = 'albertpujols';
+var barryb = 'barrybonds';
+var honusw = 'honuswagner';
+var joed = 'joedimaggio';
+var tedw = 'tedwilliams';
+var loug = 'lougehrig';
+var mickeym = 'mickeymantle';
+var tyc = 'tycobb';
+var williem = 'williemays';
 var v6;
 var obj;
 
-// getData:function(set){
-//     for (var i=0;i<2;i++) {
-//         d3.csv('player'+i)
-//             .row(function(d) {
-//                 da =year:+d.Year, war:+d.WAR, homers:+d.Homers, hits:+d.Hits, rbis:+d.RBIs, runs:+d.Runs;
-//                 return da
-//             })
-//             .get(function(error, rows) {
-//                 var cumulative = JSON.parse(JSON.stringify(rows));
-//                 data.push(playerData);
-//                 if (data.length === 2)
-//             })
-//     }
-
-// }
 //everything relying on data within baberuth.csv must be contained here
 var player = {
 ok:this,
-resetter:function() {
-    v6 = 'lol'
-    console.log('hello');
+resetter:function(member, player) {
+    d3.selectAll("svg").remove();
     // newData2 = eval(d3.select(this).property('value'));
-    this.start('albertpujols');
+    this.start(member, player);
 },
 start:function(player, lol) {
 d3.csv(player+".csv", function(data){
@@ -139,7 +148,7 @@ d3.csv(player+".csv", function(data){
             stroke: '#1051B5',
             fill: '#FFFFE4'
         })
-        .attr("stroke-width", "4");
+        .attr("stroke-width", "4")
 
     // now add titles to the axes
     vis.append("text")
@@ -160,7 +169,8 @@ d3.csv(player+".csv", function(data){
         });
     d3.select("#select-list2")
         .on('change', function() {
-            lol.resetter();
+            newData = eval(d3.select(this).property('value'));
+            lol.resetter(newData, lol);
         });
 
     /* there is a lot of repeated code here bc I currently don't know how to properly extract
@@ -225,3 +235,5 @@ d3.csv(player+".csv", function(data){
 player.start('baberuth', player);
 
 
+Status API Training Shop Blog About
+© 2016 GitHub, Inc. Terms Privacy Security Contact Help
