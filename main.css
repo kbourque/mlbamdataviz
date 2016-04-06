@@ -8,7 +8,7 @@
 
 body {
   height: 100%;
-  background-color: #BB80E2;
+  background-color: #f5f8fa;
   font-family: "Lato", "Helvetica", sans-serif;
 }
 
@@ -55,16 +55,16 @@ body {
   position: absolute;
 }
 .menu_logo {
-  height: 30px;
-  margin: 15px auto;
+  height: 35px;
+  margin: 12px auto;
 }
 
 .sign_container {
   height: 20px;
   width: 72px;
-  border: 2px solid #B36AE2;
+  border: 2px solid #F15A26;
   border-radius: 30px;
-  color: #B36AE2;
+  color: #F15A26;
   font-size: 1em;
   float: right;
   padding: 10px;
@@ -74,55 +74,38 @@ body {
 }
 
 .sign_container:hover {
-  background-color: #f4eafa;
+  background-color: #fcdacf;
 }
+
+.sidebar {
+  float: left;
+  width: 250px;
+  min-height: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 97;
+  background-color: #F15A26;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3);
+}
+
+
 
 .poster_section {
   margin: 100px auto;
   max-width: 1000px;
 }
+
 .poster_image {
   margin-top: 20px;
   margin-bottom: 30px;
   max-width: 1000px;
 }
 
-.question {
-  max-width: 1000px;
-  margin: 0;
+.graph {
+  background-color:
 }
 
-.answers {
-  max-width: 500px;
-  margin: 40px auto;
-}
-
-.answer_yes {
-  height: 30px;
-  width: 150px;
-  border: 3px solid white;
-  border-radius: 40px;
-  background-color: #8CC63F;
-  font-size: 1.5em;
-  float: left;
-  padding: 10px;
-  margin: 10px 15px;
-  text-align: center;
-  color: white;
-}
-.answer_no {
-  height: 30px;
-  width: 150px;
-  border: 3px solid white;
-  border-radius: 40px;
-  background-color: #F3522C;
-  font-size: 1.5em;
-  float: right;
-  padding: 10px;
-  margin: 10px 15px;
-  text-align: center;
-  color: white;
-}
 
 h1 {
   font-family: "Lato", "Helvetica", sans-serif;
