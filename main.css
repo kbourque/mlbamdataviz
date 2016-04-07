@@ -49,10 +49,11 @@ body {
 
 .menu_container {
   height: 60px;
+  left: 70px;
   width: 100%;
   float: left;
   margin: 0 10px;
-  position: absolute;
+  position: relative;
 }
 .menu_logo {
   height: 35px;
