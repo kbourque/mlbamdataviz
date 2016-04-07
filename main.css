@@ -41,6 +41,7 @@ body {
   height: 60px;
   width: 300px;
   margin: auto;
+  display: inline-block;
 }
 .header_logo {
   width: 170px;
@@ -63,12 +64,12 @@ body {
 .sign_container {
   height: 16px;
   width: 72px;
-  right: 100px;
+  right: 150px;
   float: right;
   border: 2px solid #F15A26;
   border-radius: 5px;
   color: #F15A26;
-  font-size: 0.7em;
+  font-size: 0.8em;
   padding: 10px;
   margin: 10px 15px;
   text-align: center;
@@ -82,28 +83,32 @@ body {
 
 .b_button {
   height: 16px;
-  width: 40px;
+  width: 50px;
   border: 2px solid #F15A26;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   color: #F15A26;
-  font-size: 0.7em;
+  font-size: 0.8em;
   padding: 10px;
   text-align: center;
   z-index: 100;
+  display: inline-block;
+
 }
 
 .p_button {
   height: 16px;
-  width: 40px;
+  width: 50px;
   border: 2px solid #F15A26;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   color: #F15A26;
-  font-size: 0.7em;
+  font-size: 0.8em;
   padding: 10px;
   text-align: center;
   z-index: 100;
+  display: inline-block;
+
 }
 
 
