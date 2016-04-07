@@ -61,7 +61,7 @@ body {
 }
 
 .sign_container {
-  height: 16px;
+  height: 14px;
   width: 72px;
   right: 500px;
   position: fixed;
@@ -81,23 +81,23 @@ body {
 }
 
 .b_button {
-  height: 16px;
+  height: 14px;
   width: 60px;
   border: 2px solid #F15A26;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
-  color: #F15A26;
+  color: white;
   font-size: 0.8em;
   padding: 10px;
   text-align: center;
   z-index: 100;
   margin: 10px -3px;
   display: inline-block;
-
+  background-color: #F15A26;
 }
 
 .p_button {
-  height: 16px;
+  height: 14px;
   width: 60px;
   border: 2px solid #F15A26;
   border-top-right-radius: 5px;
@@ -136,8 +136,8 @@ body {
 }
 
 .sidebarpic {
-  margin: 30px auto;
-  width: 210px;
+  margin: 100px 20px;
+  width: 205px;
 }
 
 
