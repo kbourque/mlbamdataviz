@@ -64,7 +64,6 @@ body {
   height: 16px;
   width: 72px;
   right: 150px;
-  float: right;
   border: 2px solid #F15A26;
   border-radius: 5px;
   color: #F15A26;
@@ -82,7 +81,7 @@ body {
 
 .b_button {
   height: 16px;
-  width: 50px;
+  width: 60px;
   border: 2px solid #F15A26;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
@@ -91,13 +90,14 @@ body {
   padding: 10px;
   text-align: center;
   z-index: 100;
+  margin: 10px 0;
   display: inline-block;
 
 }
 
 .p_button {
   height: 16px;
-  width: 50px;
+  width: 60px;
   border: 2px solid #F15A26;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -106,6 +106,7 @@ body {
   padding: 10px;
   text-align: center;
   z-index: 100;
+  margin: 10px 0;
   display: inline-block;
 
 }
@@ -127,7 +128,7 @@ body {
   box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3);
 }
 
-select#select-list {
+select {
   margin-top: 100px;
   font-size: 2em;
 }
@@ -159,6 +160,10 @@ select#select-list {
     box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3);
   }
 
+
+.graph {
+  e
+}
 
 
 h1 {
