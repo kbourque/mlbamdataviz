@@ -49,11 +49,11 @@ body {
 
 .menu_container {
   height: 60px;
-  left: 70px;
+  left: 75px;
   width: 100%;
   float: left;
   margin: 0 10px;
-  position: relative;
+  position: absolute;
 }
 .menu_logo {
   height: 35px;
@@ -61,13 +61,13 @@ body {
 }
 
 .sign_container {
-  height: 20px;
+  height: 16px;
   width: 72px;
+  right: 100px;
   border: 2px solid #F15A26;
   border-radius: 5px;
   color: #F15A26;
-  font-size: 1em;
-  float: right;
+  font-size: 0.7em;
   padding: 10px;
   margin: 10px 15px;
   text-align: center;
