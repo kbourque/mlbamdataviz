@@ -10,21 +10,27 @@
         <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
         <script src="script.js"></script>
     </head>
-    <body>
-      <header class="top_header">
+    <header class="top_header">
         <div class="header_container">
           <nav class="menu_container">
-            <a><img class="menu_logo" src="media/menu.png"></a>
-            <a><div class="sign_container">About</div></a>
+            <a><img class="menu_logo" src="media/header_logo.png"></a>
+            <a><div class="sign_container">ABOUT</div></a>
           </nav>
           <div class="logo_container">
             <div class="logo_container2">
-              <img class="header_logo" src="media/header_logo.png">
+              <a>
+                <div>BATTERS</div>
+                <div>PITCHERS</div>
+              </a>
             </div>
           </div>
         </div>
       </header>
-      <div id="main">
+
+      <div class="sidebar">
+
+      </div>
+      <section class = "poster_section">
             <select id="select-list">
                 <option value="v1">WAR</option>
                 <option value="v2">Homers</option>
@@ -47,6 +53,6 @@
 
             <div class="graph">
             </div>
-        </div>
+        </section>
     </body>
 </html>

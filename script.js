@@ -1,5 +1,6 @@
 // must be declared outside
 var dataset3;
+var datasetcomp;
 var margin;
 var w2;
 var h2;
@@ -32,8 +33,10 @@ var loug = 'lougehrig';
 var mickeym = 'mickeymantle';
 var tyc = 'tycobb';
 var williem = 'williemays';
-var v6;
 var obj;
+
+var compdata;
+
 
 //everything relying on data within baberuth.csv must be contained here
 var player = {
@@ -43,6 +46,17 @@ resetter:function(member, player) {
     // newData2 = eval(d3.select(this).property('value'));
     this.start(member, player);
 },
+comp:function() {
+    d3.csv('albertpujols.csv', function(data){
+        data.forEach(function(d){ d['Year'] = +d['Year']; });
+        data.forEach(function(d){ d['WAR'] = +d['WAR']; });
+        data.forEach(function(d){d['Homers'] = +d['Homers']});
+        data.forEach(function(d){d['Hits'] = +d['Hits']});
+        data.forEach(function(d){d['RBIs'] = +d['RBIs']});
+        data.forEach(function(d){d['Runs'] = +d['Runs']});    
+        compdata = data;
+    })
+},
 start:function(player, lol) {
 d3.csv(player+".csv", function(data){
     // importing data from CSV file
@@ -51,8 +65,8 @@ d3.csv(player+".csv", function(data){
     data.forEach(function(d){d['Homers'] = +d['Homers']});
     data.forEach(function(d){d['Hits'] = +d['Hits']});
     data.forEach(function(d){d['RBIs'] = +d['RBIs']});
-    data.forEach(function(d){d['Runs'] = +d['Runs']});
-    console.log(data);
+    data.forEach(function(d){d['Runs'] = +d['Runs']});    
+    data.forEach(function(d){d['Season'] = +d['Season']}); 
     dataset3 = data;
     padding = 65;
     w2 = 1000,
@@ -63,8 +77,8 @@ d3.csv(player+".csv", function(data){
         bottom: 20,
         left: 50
     };
-
-    // adding scales
+    
+         // adding scales
     xScale = d3.scale.linear()
              .domain([d3.min(dataset3, function(d) { return d.Year; }), d3.max(dataset3, function(d) { return d.Year; })])
              .range([padding, w2-padding*2]);
@@ -157,8 +171,56 @@ d3.csv(player+".csv", function(data){
             lol.resetter(newData, lol);
         });
 
-    /* there is a lot of repeated code here bc I currently don't know how to properly extract
-    the data after i click on the drop down menu. will table for later. */
+    function compare() {
+        d3.csv('albertpujols.csv', function(data) {
+            data.forEach(function(d){ d['Year'] = +d['Year']; });
+            data.forEach(function(d){ d['WAR'] = +d['WAR']; });
+            data.forEach(function(d){d['Homers'] = +d['Homers']});
+            data.forEach(function(d){d['Hits'] = +d['Hits']});
+            data.forEach(function(d){d['RBIs'] = +d['RBIs']});
+            data.forEach(function(d){d['Runs'] = +d['Runs']});    
+            data.forEach(function(d){d['Season'] = +d['Season']}); 
+
+            datasetcomp = data;
+
+            var firstmin = d3.min(dataset3, function(d) { return d.Year; });
+            var firstmax = d3.max(dataset3, function(d) { return d.Year; });
+            var secondmin = d3.min(datasetcomp, function(d) { return d.Year; });
+            var secondmax = d3.max(datasetcomp, function(d) { return d.Year; });
+
+            var warmax1 = d3.max(dataset3, function(d) { return d.WAR; });
+            var warmax2 = d3.max(datasetcomp, function(d) { return d.WAR; });
+
+            function findbiggest(firstmax, secondmax) {
+                if (firstmax > secondmax) {
+                    return firstmax
+                } else {
+                    return secondmax;
+                }
+            }
+
+            function findsmolest(firstmax, secondmax) {
+                if (firstmax > secondmax) {
+                    return secondmax
+                } else {
+                    return firstmax;
+                }
+            }
+
+            var biggest = findbiggest(firstmax, secondmax);
+            var smolest = findbiggest(firstmin, secondmin);
+            var biggestWAR = findbiggest()
+
+        // adding scales
+        xScale.domain([d3.min(dataset3, function(d) { return d.Year; }), d3.max(dataset3, function(d) { return d.Year; })])
+             .range([padding, w2-padding*2]);
+        yScale.domain([0, d3.max(dataset3, function(d) { return d.WAR; })])
+             .range([h2-padding, padding]);
+
+
+        });
+    }
+
     function updateLegend(newData) {
         //updating scale domains
         xScale.domain([d3.min(dataset3, function(d) { return d.Year; }), d3.max(dataset3, function(d) { return d.Year; })])
@@ -213,9 +275,11 @@ d3.csv(player+".csv", function(data){
         .attr("transform", "translate("+ (padding/3+10) +","+(h2/2)+")rotate(-90)")
         .text(newData);
     }
-        });
+});
 }
 }
 player.start('baberuth', player);
+// player.comp();
+
 
 
