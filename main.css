@@ -64,7 +64,7 @@ body {
   height: 16px;
   width: 72px;
   right: 500px;
-  position: relative;
+  position: fixed;
   border: 2px solid #F15A26;
   border-radius: 5px;
   color: #F15A26;
@@ -91,7 +91,7 @@ body {
   padding: 10px;
   text-align: center;
   z-index: 100;
-  margin: 10px -2px;
+  margin: 10px -3px;
   display: inline-block;
 
 }
@@ -107,7 +107,7 @@ body {
   padding: 10px;
   text-align: center;
   z-index: 100;
-  margin: 10px -2px;
+  margin: 10px -3px;
   display: inline-block;
 
 }
@@ -169,8 +169,6 @@ select {
 
 
 .graph {
-  background-color: white;
-  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3);
 
 }
 
