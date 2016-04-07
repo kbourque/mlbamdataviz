@@ -1,19 +1,3 @@
-Skip to content
-This repository
-Search
-Pull requests
-Issues
-Gist
- @kbourque
- Unwatch 4
-  Star 1
-  Fork 0 kbourque/mlbamdataviz
- Code  Issues 0  Pull requests 0  Wiki  Pulse  Graphs  Settings
-Branch: master Find file Copy pathmlbamdataviz/script.js
-39d8852  8 minutes ago
-@kbourque kbourque added all the players
-1 contributor
-RawBlameHistory     237 lines (208 sloc)  6.37 KB
 // must be declared outside
 var dataset3;
 var margin;
@@ -235,5 +219,3 @@ d3.csv(player+".csv", function(data){
 player.start('baberuth', player);
 
 
-Status API Training Shop Blog About
-© 2016 GitHub, Inc. Terms Privacy Security Contact Help
