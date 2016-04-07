@@ -53,7 +53,7 @@ comp:function() {
         data.forEach(function(d){d['Homers'] = +d['Homers']});
         data.forEach(function(d){d['Hits'] = +d['Hits']});
         data.forEach(function(d){d['RBIs'] = +d['RBIs']});
-        data.forEach(function(d){d['Runs'] = +d['Runs']});    
+        data.forEach(function(d){d['Runs'] = +d['Runs']});
         compdata = data;
     })
 },
@@ -65,19 +65,19 @@ d3.csv(player+".csv", function(data){
     data.forEach(function(d){d['Homers'] = +d['Homers']});
     data.forEach(function(d){d['Hits'] = +d['Hits']});
     data.forEach(function(d){d['RBIs'] = +d['RBIs']});
-    data.forEach(function(d){d['Runs'] = +d['Runs']});    
-    data.forEach(function(d){d['Season'] = +d['Season']}); 
+    data.forEach(function(d){d['Runs'] = +d['Runs']});
+    data.forEach(function(d){d['Season'] = +d['Season']});
     dataset3 = data;
     padding = 65;
-    w2 = 1000,
-    h2 = 500,
+    w2 = 1200,
+    h2 = 600,
     margin = {
         top: 20,
         right: 20,
         bottom: 20,
         left: 50
     };
-    
+
          // adding scales
     xScale = d3.scale.linear()
              .domain([d3.min(dataset3, function(d) { return d.Year; }), d3.max(dataset3, function(d) { return d.Year; })])
@@ -178,8 +178,8 @@ d3.csv(player+".csv", function(data){
             data.forEach(function(d){d['Homers'] = +d['Homers']});
             data.forEach(function(d){d['Hits'] = +d['Hits']});
             data.forEach(function(d){d['RBIs'] = +d['RBIs']});
-            data.forEach(function(d){d['Runs'] = +d['Runs']});    
-            data.forEach(function(d){d['Season'] = +d['Season']}); 
+            data.forEach(function(d){d['Runs'] = +d['Runs']});
+            data.forEach(function(d){d['Season'] = +d['Season']});
 
             datasetcomp = data;
 
@@ -280,6 +280,3 @@ d3.csv(player+".csv", function(data){
 }
 player.start('baberuth', player);
 // player.comp();
-
-
-
