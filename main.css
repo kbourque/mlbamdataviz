@@ -144,6 +144,8 @@ body {
 select {
   margin-top: 100px;
   font-size: 3em;
+  margin-left: auto;
+  margin-right: auto;
 }
 .poster_section {
   margin: 100px auto;
