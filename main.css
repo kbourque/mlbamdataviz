@@ -91,7 +91,7 @@ body {
   padding: 10px;
   text-align: center;
   z-index: 100;
-  margin: 10px -1px;
+  margin: 10px -2px;
   display: inline-block;
 
 }
@@ -107,7 +107,7 @@ body {
   padding: 10px;
   text-align: center;
   z-index: 100;
-  margin: 10px -1px;
+  margin: 10px -2px;
   display: inline-block;
 
 }
@@ -169,7 +169,9 @@ select {
 
 
 .graph {
-  e
+  background-color: white;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3);
+
 }
 
 
