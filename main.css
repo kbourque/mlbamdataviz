@@ -63,7 +63,7 @@ body {
   height: 20px;
   width: 72px;
   border: 2px solid #F15A26;
-  border-radius: 30px;
+  border-radius: 5px;
   color: #F15A26;
   font-size: 1em;
   float: right;
@@ -74,7 +74,8 @@ body {
 }
 
 .sign_container:hover {
-  background-color: #fcdacf;
+  background-color: #F15A26;
+  color: white;
 }
 
 .sidebar {
