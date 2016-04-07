@@ -63,7 +63,8 @@ body {
 .sign_container {
   height: 16px;
   width: 72px;
-  right: 150px;
+  right: 500px;
+  position: relative;
   border: 2px solid #F15A26;
   border-radius: 5px;
   color: #F15A26;
@@ -72,7 +73,6 @@ body {
   margin: 10px 15px;
   text-align: center;
   z-index: 100;
-  position: relative;
 }
 
 .sign_container:hover {
@@ -91,7 +91,7 @@ body {
   padding: 10px;
   text-align: center;
   z-index: 100;
-  margin: 10px 0;
+  margin: 10px -1px;
   display: inline-block;
 
 }
@@ -107,13 +107,19 @@ body {
   padding: 10px;
   text-align: center;
   z-index: 100;
-  margin: 10px 0;
+  margin: 10px -1px;
   display: inline-block;
 
 }
 
-
-
+.b_button:hover {
+  background-color: #F15A26;
+  color: white;
+}
+.p_button:hover {
+  background-color: #F15A26;
+  color: white;
+}
 
 
 
