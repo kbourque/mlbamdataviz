@@ -35,6 +35,8 @@ var tyc = 'tycobb';
 var williem = 'williemays';
 var obj;
 
+var albertpc = 'albertpujols'
+
 var compdata;
 
 
@@ -45,17 +47,6 @@ resetter:function(member, player) {
     d3.selectAll("svg").remove();
     // newData2 = eval(d3.select(this).property('value'));
     this.start(member, player);
-},
-comp:function() {
-    d3.csv('albertpujols.csv', function(data){
-        data.forEach(function(d){ d['Year'] = +d['Year']; });
-        data.forEach(function(d){ d['WAR'] = +d['WAR']; });
-        data.forEach(function(d){d['Homers'] = +d['Homers']});
-        data.forEach(function(d){d['Hits'] = +d['Hits']});
-        data.forEach(function(d){d['RBIs'] = +d['RBIs']});
-        data.forEach(function(d){d['Runs'] = +d['Runs']});    
-        compdata = data;
-    })
 },
 start:function(player, lol) {
 d3.csv(player+".csv", function(data){
@@ -131,14 +122,35 @@ d3.csv(player+".csv", function(data){
       .attr('stroke-width', 4)
       .attr('fill', 'none');
 
+
+    // // // path
+    // lineGen2 = d3.svg.line()
+    //   .x(function(d) {
+    //     return xScale(d.Year);
+    //   })
+    //   .y(function(d) {
+    //     return yScale(d.RBIs);
+    //   })
+    //   .interpolate("cardinal");
+
+    // lines =vis.append('svg:path')
+    //     .attr('class', 'lines')
+
+    //   lines.attr('d', lineGen2(data))
+    //   .attr('stroke', '#1051B5')
+    //   .attr('stroke-width', 4)
+    //   .attr('fill', 'none');
+
+
     // points
-    vis.append("g")
+    circles = vis.append("g")
         .attr("id", "circles")
         .selectAll("circle")
         .data(dataset3)
         .enter()
-        .append("circle")
-        .attr({
+    
+    circles.append("circle")
+    .attr({
             cx: function(d) {return xScale(d.Year);},
             cy: function(d) {return yScale(d.WAR);},
             r: 8,
@@ -147,6 +159,17 @@ d3.csv(player+".csv", function(data){
             fill: '#FFFFE4'
         })
         .attr("stroke-width", "4")
+
+    // circles.append("circle")
+    // .attr({
+    //         cx: function(d) {return xScale(d.Year);},
+    //         cy: function(d) {return yScale(d.RBIs);},
+    //         r: 8,
+    //         // fill: '#E8FFFC',
+    //         stroke: '#1051B5',
+    //         fill: '#FFFFE4'
+    //     })
+    //     .attr("stroke-width", "4")
 
     // now add titles to the axes
     vis.append("text")
@@ -170,6 +193,11 @@ d3.csv(player+".csv", function(data){
             newData = eval(d3.select(this).property('value'));
             lol.resetter(newData, lol);
         });
+    d3.select("#select-list3")
+        .on('change', function() {
+            newData = eval(d3.select(this).property('value'));
+            compare();
+        });
 
     function compare() {
         d3.csv('albertpujols.csv', function(data) {
@@ -181,12 +209,12 @@ d3.csv(player+".csv", function(data){
             data.forEach(function(d){d['Runs'] = +d['Runs']});    
             data.forEach(function(d){d['Season'] = +d['Season']}); 
 
+            //adding comparison data
             datasetcomp = data;
 
-            var firstmin = d3.min(dataset3, function(d) { return d.Year; });
-            var firstmax = d3.max(dataset3, function(d) { return d.Year; });
-            var secondmin = d3.min(datasetcomp, function(d) { return d.Year; });
-            var secondmax = d3.max(datasetcomp, function(d) { return d.Year; });
+            // comparing longest seasons, biggest war 
+            var firstmax = d3.max(dataset3, function(d) { return d.Season; });
+            var secondmax = d3.max(datasetcomp, function(d) { return d.Season; });
 
             var warmax1 = d3.max(dataset3, function(d) { return d.WAR; });
             var warmax2 = d3.max(datasetcomp, function(d) { return d.WAR; });
@@ -207,17 +235,102 @@ d3.csv(player+".csv", function(data){
                 }
             }
 
-            var biggest = findbiggest(firstmax, secondmax);
-            var smolest = findbiggest(firstmin, secondmin);
-            var biggestWAR = findbiggest()
+            var longestseason = findbiggest(firstmax, secondmax);
+            var biggestWAR = findbiggest(warmax1, warmax2);
 
         // adding scales
-        xScale.domain([d3.min(dataset3, function(d) { return d.Year; }), d3.max(dataset3, function(d) { return d.Year; })])
+        xScale.domain([0, longestseason])
              .range([padding, w2-padding*2]);
-        yScale.domain([0, d3.max(dataset3, function(d) { return d.WAR; })])
+        yScale.domain([0, biggestWAR])
              .range([h2-padding, padding]);
 
+        //Update X axis
+        vis.select("#xaxis")
+            .transition()
+            .duration(1000)
+            .call(xAxis);
 
+        //Update Y axis
+        vis.select("#yaxis")
+            .transition()
+            .duration(1000)
+            .call(yAxis);
+  
+  lineGen = d3.svg.line()
+          .x(function(d) {
+            return xScale(d.Season);
+          })
+          .y(function(d) {
+            return yScale(d.WAR);
+          })
+          .interpolate("cardinal");
+
+        d3.selectAll(".lines")
+            .transition()
+            .duration(1000)
+            .attr('d', lineGen(dataset3));
+
+
+     lineGen2 = d3.svg.line()
+      .x(function(d) {
+        return xScale(d.Season);
+      })
+      .y(function(d) {
+        return yScale(d.WAR);
+      })
+      .interpolate("cardinal");
+        // .transition()
+        // .duration(1000)
+        // .attr('d', lineGen(datasetcomp));
+
+    lines =vis.append('svg:path')
+        .attr('class', 'linez')
+
+      lines.attr('d', lineGen2(datasetcomp))
+      .attr('stroke', '#1051B5')
+      .attr('stroke-width', 0)
+      .attr('fill', 'none');
+
+
+    d3.selectAll(".linez")
+        .transition()
+        .duration(1000)
+        .attr('stroke-width', 4);
+
+
+    circles = vis.append("g")
+        .selectAll("circle")
+        .data(datasetcomp)
+        .enter()
+    
+    
+    circles.append("circle")
+    .attr({
+            cx: function(d) {return xScale(d.Season);},
+            cy: function(d) {return yScale(d.WAR);},
+            r: 8,
+            fill: '#E8FFFC',
+            stroke: '#1051B5'
+        })
+        .attr("stroke-width", "0")
+        .attr('class', 'circles')
+
+    vis.selectAll('.circles')
+        .transition()
+        .duration(1000)
+        .attr('fill', '#FFFFE4')
+        .attr('stroke-width', '4')
+
+    vis.selectAll("circle")
+            .data(dataset3)
+            .transition()
+            .duration(1000)
+            .attr("cx", function(d) {
+                return xScale(d.Season);
+            })
+            .attr("cy", function(d) {
+                return yScale(d.WAR);
+            });
         });
     }
 
