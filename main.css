@@ -135,6 +135,23 @@ body {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
 }
 
+
+.sidebar {
+    float: left;
+    width: 250px;
+  background: #ccc;
+    min-height: 100%;
+
+    top: 0;
+    left: 0;
+    position: fixed;
+  z-index: 99;
+  background-color: #fcdacf;
+  z-index: 97;
+  background-color: #F15A26;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3);
+  }
+
 .sidebarpic {
   margin: 100px 22px;
   width: 205px;
