@@ -48,6 +48,17 @@ resetter:function(member, player) {
     // newData2 = eval(d3.select(this).property('value'));
     this.start(member, player);
 },
+comp:function() {
+    d3.csv('albertpujols.csv', function(data){
+        data.forEach(function(d){ d['Year'] = +d['Year']; });
+        data.forEach(function(d){ d['WAR'] = +d['WAR']; });
+        data.forEach(function(d){d['Homers'] = +d['Homers']});
+        data.forEach(function(d){d['Hits'] = +d['Hits']});
+        data.forEach(function(d){d['RBIs'] = +d['RBIs']});
+        data.forEach(function(d){d['Runs'] = +d['Runs']});
+        compdata = data;
+    })
+},
 start:function(player, lol) {
 d3.csv(player+".csv", function(data){
     // importing data from CSV file
@@ -56,19 +67,19 @@ d3.csv(player+".csv", function(data){
     data.forEach(function(d){d['Homers'] = +d['Homers']});
     data.forEach(function(d){d['Hits'] = +d['Hits']});
     data.forEach(function(d){d['RBIs'] = +d['RBIs']});
-    data.forEach(function(d){d['Runs'] = +d['Runs']});    
-    data.forEach(function(d){d['Season'] = +d['Season']}); 
+    data.forEach(function(d){d['Runs'] = +d['Runs']});
+    data.forEach(function(d){d['Season'] = +d['Season']});
     dataset3 = data;
     padding = 65;
-    w2 = 1000,
-    h2 = 500,
+    w2 = 1200,
+    h2 = 600,
     margin = {
         top: 20,
         right: 20,
         bottom: 20,
         left: 50
     };
-    
+
          // adding scales
     xScale = d3.scale.linear()
              .domain([d3.min(dataset3, function(d) { return d.Year; }), d3.max(dataset3, function(d) { return d.Year; })])
@@ -206,8 +217,8 @@ d3.csv(player+".csv", function(data){
             data.forEach(function(d){d['Homers'] = +d['Homers']});
             data.forEach(function(d){d['Hits'] = +d['Hits']});
             data.forEach(function(d){d['RBIs'] = +d['RBIs']});
-            data.forEach(function(d){d['Runs'] = +d['Runs']});    
-            data.forEach(function(d){d['Season'] = +d['Season']}); 
+            data.forEach(function(d){d['Runs'] = +d['Runs']});
+            data.forEach(function(d){d['Season'] = +d['Season']});
 
             //adding comparison data
             datasetcomp = data;
@@ -393,6 +404,3 @@ d3.csv(player+".csv", function(data){
 }
 player.start('baberuth', player);
 // player.comp();
-
-
-
