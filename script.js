@@ -199,9 +199,9 @@ d3.csv(player+".csv", function(data){
             newData = eval(d3.select(this).property('value'));
             updateLegend(newData);
         });
-    d3.select("#select-list2")
-        .on('change', function() {
-            newData = eval(d3.select(this).property('value'));
+    d3.selectAll(".player_circle")
+        .on('click', function() {
+            newData = eval(d3.select(this).property('id'));
             lol.resetter(newData, lol);
         });
     d3.select("#select-list3")
