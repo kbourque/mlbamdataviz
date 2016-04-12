@@ -38,29 +38,22 @@ var obj;
 var albertpc = 'albertpujols'
 
 var compdata;
+var cancompare = 0;
 
 
 //everything relying on data within baberuth.csv must be contained here
 var player = {
 ok:this,
 resetter:function(member, player) {
-    d3.selectAll("svg").remove();
+    d3.selectAll("svg")
+    .transition()
+    .duration(500)
+    .remove();
     // newData2 = eval(d3.select(this).property('value'));
     this.start(member, player);
 },
-comp:function() {
-    d3.csv('albertpujols.csv', function(data){
-        data.forEach(function(d){ d['Year'] = +d['Year']; });
-        data.forEach(function(d){ d['WAR'] = +d['WAR']; });
-        data.forEach(function(d){d['Homers'] = +d['Homers']});
-        data.forEach(function(d){d['Hits'] = +d['Hits']});
-        data.forEach(function(d){d['RBIs'] = +d['RBIs']});
-        data.forEach(function(d){d['Runs'] = +d['Runs']});
-        compdata = data;
-    })
-},
 start:function(player, lol) {
-d3.csv(player+".csv", function(data){
+d3.csv(player+'.csv', function(data){
     // importing data from CSV file
     data.forEach(function(d){ d['Year'] = +d['Year']; });
     data.forEach(function(d){ d['WAR'] = +d['WAR']; });
@@ -207,11 +200,26 @@ d3.csv(player+".csv", function(data){
     d3.select("#select-list3")
         .on('change', function() {
             newData = eval(d3.select(this).property('value'));
-            compare();
+            if (cancompare == 0) {
+                console.log(cancompare);
+                cancompare = 1;
+            } else {
+                console.log('hi');
+                d3.selectAll('.linez')
+                    // .transition()
+                    // .duration(1000)
+                    .remove();
+                d3.selectAll('.circles')
+                    // .transition()
+                    // .duration(1000)
+                    .remove();
+                console.log(cancompare);
+            }
+            compare(newData);
         });
 
-    function compare() {
-        d3.csv('albertpujols.csv', function(data) {
+    function compare(player) {
+        d3.csv(player+'.csv', function(data) {
             data.forEach(function(d){ d['Year'] = +d['Year']; });
             data.forEach(function(d){ d['WAR'] = +d['WAR']; });
             data.forEach(function(d){d['Homers'] = +d['Homers']});
