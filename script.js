@@ -40,6 +40,10 @@ var albertpc = 'albertpujols'
 var compdata;
 var cancompare = 0;
 
+var compplayer;
+var currplayer = 'baberuth';
+
+var newData = 'WAR';
 
 //everything relying on data within baberuth.csv must be contained here
 var player = {
@@ -191,34 +195,35 @@ d3.csv(player+'.csv', function(data){
         .on('change', function() {
             newData = eval(d3.select(this).property('value'));
             updateLegend(newData);
+            if (cancompare > 0) {
+                compare(compplayer, newData);
+                d3.selectAll('.linez')
+                    .remove();
+                d3.selectAll('.circles')
+                    .remove();
+            }
         });
     d3.selectAll(".player_circle")
         .on('click', function() {
-            newData = eval(d3.select(this).property('id'));
-            lol.resetter(newData, lol);
+            currplayer = eval(d3.select(this).property('id'));
+            lol.resetter(currplayer, lol);
         });
     d3.select("#select-list3")
         .on('change', function() {
-            newData = eval(d3.select(this).property('value'));
+            compplayer = eval(d3.select(this).property('value'));
             if (cancompare == 0) {
                 console.log(cancompare);
                 cancompare = 1;
             } else {
-                console.log('hi');
                 d3.selectAll('.linez')
-                    // .transition()
-                    // .duration(1000)
                     .remove();
                 d3.selectAll('.circles')
-                    // .transition()
-                    // .duration(1000)
                     .remove();
-                console.log(cancompare);
             }
-            compare(newData);
+            compare(compplayer, newData);
         });
 
-    function compare(player) {
+    function compare(player, stat) {
         d3.csv(player+'.csv', function(data) {
             data.forEach(function(d){ d['Year'] = +d['Year']; });
             data.forEach(function(d){ d['WAR'] = +d['WAR']; });
@@ -235,8 +240,8 @@ d3.csv(player+'.csv', function(data){
             var firstmax = d3.max(dataset3, function(d) { return d.Season; });
             var secondmax = d3.max(datasetcomp, function(d) { return d.Season; });
 
-            var warmax1 = d3.max(dataset3, function(d) { return d.WAR; });
-            var warmax2 = d3.max(datasetcomp, function(d) { return d.WAR; });
+            var statmax1 = d3.max(dataset3, function(d) { return eval('d.' + stat); });
+            var statmax2 = d3.max(datasetcomp, function(d) { return eval('d.' + stat); });
 
             function findbiggest(firstmax, secondmax) {
                 if (firstmax > secondmax) {
@@ -255,12 +260,12 @@ d3.csv(player+'.csv', function(data){
             }
 
             var longestseason = findbiggest(firstmax, secondmax);
-            var biggestWAR = findbiggest(warmax1, warmax2);
+            var biggeststat = findbiggest(statmax1, statmax2);
 
         // adding scales
         xScale.domain([0, longestseason])
              .range([padding, w2-padding*2]);
-        yScale.domain([0, biggestWAR])
+        yScale.domain([0, biggeststat])
              .range([h2-padding, padding]);
 
         //Update X axis
@@ -280,7 +285,7 @@ d3.csv(player+'.csv', function(data){
             return xScale(d.Season);
           })
           .y(function(d) {
-            return yScale(d.WAR);
+            return yScale(eval('d.' + stat));
           })
           .interpolate("cardinal");
 
@@ -295,7 +300,7 @@ d3.csv(player+'.csv', function(data){
         return xScale(d.Season);
       })
       .y(function(d) {
-        return yScale(d.WAR);
+        return yScale(eval('d.' + stat));
       })
       .interpolate("cardinal");
         // .transition()
@@ -326,7 +331,7 @@ d3.csv(player+'.csv', function(data){
     circles.append("circle")
     .attr({
             cx: function(d) {return xScale(d.Season);},
-            cy: function(d) {return yScale(d.WAR);},
+            cy: function(d) {return yScale(eval('d.' + stat));},
             r: 8,
             fill: '#E8FFFC',
             stroke: '#94FF50'
@@ -348,9 +353,11 @@ d3.csv(player+'.csv', function(data){
                 return xScale(d.Season);
             })
             .attr("cy", function(d) {
-                return yScale(d.WAR);
+                return yScale(eval('d.' + stat));
             });
         });
+    
+
     }
 
     function updateLegend(newData) {
