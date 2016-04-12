@@ -306,7 +306,7 @@ d3.csv(player+'.csv', function(data){
         .attr('class', 'linez')
 
       lines.attr('d', lineGen2(datasetcomp))
-      .attr('stroke', '#1051B5')
+      .attr('stroke', '#94FF50')
       .attr('stroke-width', 0)
       .attr('fill', 'none');
 
@@ -329,7 +329,7 @@ d3.csv(player+'.csv', function(data){
             cy: function(d) {return yScale(d.WAR);},
             r: 8,
             fill: '#E8FFFC',
-            stroke: '#1051B5'
+            stroke: '#94FF50'
         })
         .attr("stroke-width", "0")
         .attr('class', 'circles')
