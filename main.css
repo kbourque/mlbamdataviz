@@ -55,6 +55,7 @@ body {
 .sign_container {
   height: 14px;
   width: 72px;
+<<<<<<< HEAD
   border: 2px solid #FF7242;
   border-radius: 5px;
   color: #FF7242;
@@ -78,7 +79,7 @@ body {
 .b_button {
   height: 14px;
   width: 60px;
-  border: 2px solid #FF7242;
+  border: 2px solid #ff7242;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   color: white;
@@ -88,7 +89,7 @@ body {
   z-index: 100;
   margin: 10px -3px;
   display: inline-block;
-  background-color: #FF7242;
+  background-color: #ff7242;
   cursor: pointer;
   transition: background-color 0.5s ease;
   transition: color 0.5s ease;
