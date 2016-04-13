@@ -203,25 +203,35 @@ d3.csv(player+'.csv', function(data){
                     .remove();
             }
         });
+    // d3.selectAll(".player_circle")
+    //     .on('click', function() {
+    //         currplayer = eval(d3.select(this).property('id'));
+    //         lol.resetter(currplayer, lol);
+    //     });
     d3.selectAll(".player_circle")
         .on('click', function() {
-            currplayer = eval(d3.select(this).property('id'));
-            lol.resetter(currplayer, lol);
-        });
-    d3.select("#select-list3")
-        .on('change', function() {
-            compplayer = eval(d3.select(this).property('value'));
             if (cancompare == 0) {
-                console.log(cancompare);
+                currplayer = eval(d3.select(this).property('id'));
+                lol.resetter(currplayer, lol);
                 cancompare = 1;
             } else {
-                d3.selectAll('.linez')
-                    .remove();
-                d3.selectAll('.circles')
-                    .remove();
+                compplayer = eval(d3.select(this).property('id'));
+                if (cancompare == 1) {
+                    cancompare = 2;
+                } else {
+                    d3.selectAll('.linez')
+                        .remove();
+                    d3.selectAll('.circles')
+                        .remove();
+                }
+                compare(compplayer, newData);
             }
-            compare(compplayer, newData);
         });
+    d3.select(".reset")
+        .on('click', function() {
+            cancompare = 0;
+            lol.resetter(currplayer, lol);
+        })
 
     function compare(player, stat) {
         d3.csv(player+'.csv', function(data) {
@@ -418,4 +428,23 @@ d3.csv(player+'.csv', function(data){
 }
 }
 player.start('baberuth', player);
-// player.comp();
+
+
+$(document).ready(function () {
+    var cancompare = 0;
+
+    $('.player_circle').click( function() {
+        if (cancompare === 0) {
+            $(this).toggleClass('lol');
+            cancompare = 1;
+        } else if (cancompare === 1) {
+            $('.player_circle').removeClass('lol2');
+            $(this).toggleClass('lol2');
+        }
+    });
+    $('.reset').click( function() {
+        $('.player_circle').removeClass('lol');
+        $('.player_circle').removeClass('lol2');
+        cancompare = 0;
+    })
+});

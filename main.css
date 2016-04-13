@@ -19,7 +19,7 @@ body {
   position: fixed;
   height: 70px;
   z-index: 99;
-  background-color: #f15a26;
+  background-color: #FF7242;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
   overflow: hidden;
 
@@ -55,9 +55,9 @@ body {
 .sign_container {
   height: 14px;
   width: 72px;
-  border: 2px solid #F15A26;
+  border: 2px solid #FF7242;
   border-radius: 5px;
-  color: #F15A26;
+  color: #FF7242;
   font-size: 0.8em;
   padding: 10px;
   margin: 16px 75px;
@@ -71,14 +71,14 @@ body {
 }
 
 .sign_container:hover {
-  background-color: #F15A26;
+  background-color: #FF7242;
   color: white;
 }
 
 .b_button {
   height: 14px;
   width: 60px;
-  border: 2px solid #F15A26;
+  border: 2px solid #FF7242;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   color: white;
@@ -88,7 +88,7 @@ body {
   z-index: 100;
   margin: 10px -3px;
   display: inline-block;
-  background-color: #F15A26;
+  background-color: #FF7242;
   cursor: pointer;
   transition: background-color 0.5s ease;
   transition: color 0.5s ease;
@@ -97,10 +97,10 @@ body {
 .p_button {
   height: 14px;
   width: 60px;
-  border: 2px solid #F15A26;
+  border: 2px solid #FF7242;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  color: #F15A26;
+  color: #FF7242;
   font-size: 0.8em;
   padding: 10px;
   text-align: center;
@@ -113,11 +113,11 @@ body {
 }
 
 .b_button:hover {
-  background-color: #F15A26;
+  background-color: #FF7242;
   color: white;
 }
 .p_button:hover {
-  background-color: #F15A26;
+  background-color: #FF7242;
   color: white;
 }
 
@@ -171,8 +171,30 @@ body {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
   transition: border 0.5s ease;
 }
+
+.player_circle.lol {
+  margin: 7px 5px;
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+  border: 4px solid #1051B5;
+  cursor: pointer;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+  transition: border 0.5s ease;
+}
+
+.player_circle.lol2 {
+  margin: 7px 5px;
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+  border: 4px solid #94FF50;
+  cursor: pointer;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+  transition: border 0.5s ease;
+}
 .player_circle:hover {
-  border: 4px solid #F15A26;
+  border: 4px solid #FF7242;
 }
 
 
@@ -228,3 +250,4 @@ h3 {
   color: white;
   margin: 0 0 0 7px;
 }
+
