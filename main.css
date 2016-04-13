@@ -22,10 +22,11 @@ body {
   background-color: #f15a26;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
   overflow: hidden;
+
 }
 
 .header_container {
-  max-width: 100%;
+  max-width: 200px;
   margin: 0 auto;
   position: relative;
 }
@@ -41,43 +42,37 @@ body {
   width: 200px;
   margin: auto;
 }
-.header_logo {
-  width: 170px;
-  margin: 10px auto 0;
-}
-
 .menu_container {
   height: 60px;
-  left: 75px;
-  width: 100%;
-  float: left;
-  margin: 0 10px;
+  margin: 0 20px;
   position: absolute;
 }
 .menu_logo {
-  height: 35px;
-  margin: 12px auto;
+  height: 55px;
+  margin: 9px auto;
 }
 
 .sign_container {
   height: 14px;
   width: 72px;
-  right: 400px;
-  position: absolute;
-  border: 2px solid white;
+  border: 2px solid #F15A26;
   border-radius: 5px;
-  color: white;
+  color: #F15A26;
   font-size: 0.8em;
   padding: 10px;
-  margin: 16px 10px;
+  margin: 16px 75px;
+  margin-top: 530px;
   text-align: center;
   z-index: 100;
   vertical-align: middle;
+  transition: background-color 0.5s ease;
+  transition: color 0.5s ease;
+  cursor: pointer;
 }
 
 .sign_container:hover {
-  background-color: white;
-  color: #F15A26;
+  background-color: #F15A26;
+  color: white;
 }
 
 .b_button {
@@ -95,6 +90,8 @@ body {
   display: inline-block;
   background-color: #F15A26;
   cursor: pointer;
+  transition: background-color 0.5s ease;
+  transition: color 0.5s ease;
 }
 
 .p_button {
@@ -111,6 +108,8 @@ body {
   margin: 10px -3px;
   display: inline-block;
   cursor: pointer;
+  transition: background-color 0.5s ease;
+  transition: color 0.5s ease;
 }
 
 .b_button:hover {
