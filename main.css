@@ -170,12 +170,10 @@ body {
   border: 4px solid #e6e6e6;
   cursor: pointer;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+  transition: border 0.5s ease;
 }
 .player_circle:hover {
   border: 4px solid #F15A26;
-  background-color: #F15A26;
-  transition-delay: 1s; /* delays for 1 second */
-  -webkit-transition-delay: 1s; /* for Safari & Chrome */
 }
 
 
