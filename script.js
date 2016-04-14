@@ -23,7 +23,7 @@ var v2 = 'Homers';
 var v3 = 'Hits';
 var v4 = 'RBIs';
 var v5 = 'Runs';
-var baber = 'baberuth'
+var Babe Ruth = 'baberuth'
 var albertp = 'albertpujols';
 var barryb = 'barrybonds';
 var honusw = 'honuswagner';
@@ -437,7 +437,6 @@ $(document).ready(function () {
     $('.player_circle').mouseenter( function() {
       $('.name_box').text(this.id);
     });
-
     $('.player_circle').mouseleave( function() {
       $('.name_box').text('');
     });
