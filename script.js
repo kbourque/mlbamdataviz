@@ -434,6 +434,14 @@ player.start('baberuth', player);
 $(document).ready(function () {
     var cancompare = 0;
 
+    $('.player_circle').mouseenter( function() {
+      $('.name_box').text(this.id);
+    });
+
+    $('.player_circle').mouseleave( function() {
+      $('.name_box').text('');
+    });
+
     $('.player_circle').click( function() {
         if (cancompare === 0) {
             $(this).toggleClass('lol');
@@ -443,6 +451,7 @@ $(document).ready(function () {
             $(this).toggleClass('lol2');
         }
     });
+
     $('#reset').click( function() {
         $('.player_circle').removeClass('lol');
         $('.player_circle').removeClass('lol2');

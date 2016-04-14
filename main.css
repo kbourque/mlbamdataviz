@@ -61,7 +61,7 @@ body {
   font-size: 0.8em;
   padding: 8px;
   margin: 16px 75px;
-  margin-top: 580px;
+  margin-top: 600px;
   text-align: center;
   z-index: 100;
   vertical-align: middle;
@@ -147,7 +147,7 @@ body {
 .circle_box {
   float: left;
   width: 250px;
-  min-height: 400px;
+  min-height: 445px;
   top: 170px;
   left: 0;
   position: fixed;
@@ -162,7 +162,7 @@ body {
   padding: 0px;
   list-style: none;
   width: 50px;
-  margin-top: -85px;
+  margin-top: -45px;
   position: absolute;
   left: 28px;
 }
@@ -171,7 +171,7 @@ body {
   padding: 0px;
   list-style: none;
   width: 50px;
-  margin-top: -85px;
+  margin-top: -45px;
   position: absolute;
   right: 68px;
 }
@@ -212,7 +212,19 @@ body {
   border: 4px solid #FF7242;
 }
 
-
+.name_box {
+  height: 14px;
+  width: 150px;
+  top: 0;
+  left: 40px;
+  color: #FF7242;
+  font-size: 0.9em;
+  padding: 10px;
+  text-align: center;
+  z-index: 100;
+  margin: 10px 3px;
+  position: absolute;
+}
 
 .lower_header {
   top: 70px;
