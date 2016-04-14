@@ -444,9 +444,11 @@ $(document).ready(function () {
     $('.player_circle').click( function() {
         if (cancompare === 0) {
             $(this).toggleClass('lol');
+            $('.blue_box').text(this.alt);
             cancompare = 1;
         } else if (cancompare === 1) {
             $('.player_circle').removeClass('lol2');
+            $('.red_box').text(this.alt);
             $(this).toggleClass('lol2');
         }
     });
