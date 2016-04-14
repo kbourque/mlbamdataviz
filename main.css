@@ -246,11 +246,11 @@ body {
 
 .comparison_box {
   height: 14px;
-  max-width: 300px;
+  width: 280px;
   background-color: #333333;
   padding: 10px;
   z-index: 99;
-  margin: 55px auto;
+  margin: 55px 13px;
   position: relative;;
   border-radius: 5px;
 }
