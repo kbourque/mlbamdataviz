@@ -61,7 +61,7 @@ body {
   font-size: 0.8em;
   padding: 10px;
   margin: 16px 75px;
-  margin-top: 530px;
+  margin-top: 550px;
   text-align: center;
   z-index: 100;
   vertical-align: middle;
@@ -92,6 +92,7 @@ body {
   cursor: pointer;
   transition: background-color 0.5s ease;
   transition: color 0.5s ease;
+  font-weight: bold;
 }
 
 .p_button {
@@ -108,6 +109,7 @@ body {
   margin: 10px -3px;
   display: inline-block;
   cursor: pointer;
+  background-color: #262626;
   transition: background-color 0.5s ease;
   transition: color 0.5s ease;
 }
@@ -143,11 +145,25 @@ body {
   width: 205px;
 }
 
+.circle_box {
+  float: left;
+  width: 250px;
+  min-height: 400px;
+  top: 180px;
+  left: 0;
+  position: fixed;
+  z-index: 97;
+  background-color: #262626;
+  padding-top: 96px;
+  border-top: 2px solid #1a1a1a;
+  border-bottom: 2px solid #1a1a1a;
+}
+
 .batter_list1 {
   padding: 0px;
   list-style: none;
   width: 50px;
-  margin: auto;
+  margin-top: -85px;
   position: absolute;
   left: 28px;
 }
@@ -156,7 +172,7 @@ body {
   padding: 0px;
   list-style: none;
   width: 50px;
-  margin: auto;
+  margin-top: -85px;
   position: absolute;
   right: 68px;
 }
