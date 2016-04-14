@@ -55,7 +55,6 @@ body {
 .sign_container {
   height: 14px;
   width: 72px;
-<<<<<<< HEAD
   border: 2px solid #FF7242;
   border-radius: 5px;
   color: #FF7242;
@@ -189,7 +188,7 @@ body {
   width: 70px;
   height: 70px;
   border-radius: 100%;
-  border: 4px solid #94FF50;
+  border: 4px solid #CA0020;
   cursor: pointer;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
   transition: border 0.5s ease;
@@ -251,4 +250,3 @@ h3 {
   color: white;
   margin: 0 0 0 7px;
 }
-

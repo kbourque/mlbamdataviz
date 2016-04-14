@@ -156,7 +156,7 @@ d3.csv(player+'.csv', function(data){
         .selectAll("circle")
         .data(dataset3)
         .enter()
-    
+
     circles.append("circle")
     .attr({
             cx: function(d) {return xScale(d.Year);},
@@ -246,7 +246,7 @@ d3.csv(player+'.csv', function(data){
             //adding comparison data
             datasetcomp = data;
 
-            // comparing longest seasons, biggest war 
+            // comparing longest seasons, biggest war
             var firstmax = d3.max(dataset3, function(d) { return d.Season; });
             var secondmax = d3.max(datasetcomp, function(d) { return d.Season; });
 
@@ -289,7 +289,7 @@ d3.csv(player+'.csv', function(data){
             .transition()
             .duration(1000)
             .call(yAxis);
-  
+
   lineGen = d3.svg.line()
           .x(function(d) {
             return xScale(d.Season);
@@ -321,7 +321,7 @@ d3.csv(player+'.csv', function(data){
         .attr('class', 'linez')
 
       lines.attr('d', lineGen2(datasetcomp))
-      .attr('stroke', '#94FF50')
+      .attr('stroke', '#CA0020')
       .attr('stroke-width', 0)
       .attr('fill', 'none');
 
@@ -336,15 +336,15 @@ d3.csv(player+'.csv', function(data){
         .selectAll("circle")
         .data(datasetcomp)
         .enter()
-    
-    
+
+
     circles.append("circle")
     .attr({
             cx: function(d) {return xScale(d.Season);},
             cy: function(d) {return yScale(eval('d.' + stat));},
             r: 8,
             fill: '#E8FFFC',
-            stroke: '#94FF50'
+            stroke: '#CA0020'
         })
         .attr("stroke-width", "0")
         .attr('class', 'circles')
@@ -366,7 +366,7 @@ d3.csv(player+'.csv', function(data){
                 return yScale(eval('d.' + stat));
             });
         });
-    
+
 
     }
 
