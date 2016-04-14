@@ -255,6 +255,14 @@ body {
   border-radius: 5px;
 }
 
+.blue_box {
+  color: #1051B5;
+}
+
+.red_box {
+  color: #CA0020;
+}
+
 
 .option_list {
   padding: 0px;
