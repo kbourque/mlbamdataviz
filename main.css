@@ -8,7 +8,7 @@
 
 body {
   height: 100%;
-  background-color: #fbfbfb;
+  background-color: #f2f2f2;
   font-family: "Lato", "Helvetica", sans-serif;
 }
 
@@ -35,7 +35,7 @@ body {
   height: 60px;
   width: 100%;
   vertical-align: middle;
-  margin: 5px 21px;
+  margin: -3px 21px;
 }
 .logo_container2 {
   height: 60px;
@@ -54,14 +54,14 @@ body {
 
 .sign_container {
   height: 14px;
-  width: 72px;
-  border: 2px solid #FF7242;
+  width: 76px;
+  border: 1px solid #FF7242;
   border-radius: 5px;
   color: #FF7242;
   font-size: 0.8em;
   padding: 10px;
   margin: 16px 75px;
-  margin-top: 550px;
+  margin-top: 580px;
   text-align: center;
   z-index: 100;
   vertical-align: middle;
@@ -149,7 +149,7 @@ body {
   float: left;
   width: 250px;
   min-height: 400px;
-  top: 180px;
+  top: 170px;
   left: 0;
   position: fixed;
   z-index: 97;
@@ -222,8 +222,8 @@ body {
   height: 100px;
   position: fixed;
   z-index: 92;
-  background-color: #f5f8fa;
-  border-bottom: 1px solid #cccccc;
+  background-color: #333333;
+  border-bottom: 2px solid #1a1a1a;
 }
 
 
