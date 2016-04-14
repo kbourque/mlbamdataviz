@@ -428,7 +428,7 @@ d3.csv(player+'.csv', function(data){
 });
 }
 }
-player.start('baberuth', player);
+player.start('', player);
 
 
 $(document).ready(function () {
