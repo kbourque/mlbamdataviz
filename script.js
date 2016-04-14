@@ -191,9 +191,10 @@ d3.csv(player+'.csv', function(data){
         .text("Year");
 
     //triggered when option is changed on drop down menu
-    d3.select("#select-list")
-        .on('change', function() {
-            newData = eval(d3.select(this).property('value'));
+    d3.selectAll(".option_container")
+        .on('click', function() {
+            newData = eval(d3.select(this).property('id'));
+            console.log(newData);
             updateLegend(newData);
             if (cancompare > 0) {
                 compare(compplayer, newData);
@@ -227,7 +228,7 @@ d3.csv(player+'.csv', function(data){
                 compare(compplayer, newData);
             }
         });
-    d3.select(".reset")
+    d3.select("#reset")
         .on('click', function() {
             cancompare = 0;
             lol.resetter(currplayer, lol);
@@ -442,7 +443,7 @@ $(document).ready(function () {
             $(this).toggleClass('lol2');
         }
     });
-    $('.reset').click( function() {
+    $('#reset').click( function() {
         $('.player_circle').removeClass('lol');
         $('.player_circle').removeClass('lol2');
         cancompare = 0;
