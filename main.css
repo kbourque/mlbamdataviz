@@ -226,6 +226,10 @@ body {
   position: absolute;
 }
 
+
+
+
+
 .lower_header {
   top: 70px;
   left: 250px;
@@ -235,6 +239,20 @@ body {
   z-index: 92;
   background-color: #262626;
   border-bottom: 2px solid #1a1a1a;
+}
+
+.comparison_box {
+  height: 14px;
+  width: 150px;
+  top: 0;
+  left: 40px;
+  color: #FF7242;
+  font-size: 0.9em;
+  padding: 10px;
+  text-align: center;
+  z-index: 100;
+  margin: 10px 3px;
+  position: absolute;
 }
 
 .option_list {
