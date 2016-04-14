@@ -162,7 +162,7 @@ body {
   padding: 0px;
   list-style: none;
   width: 50px;
-  margin-top: -45px;
+  margin-top: -40px;
   position: absolute;
   left: 28px;
 }
@@ -171,7 +171,7 @@ body {
   padding: 0px;
   list-style: none;
   width: 50px;
-  margin-top: -45px;
+  margin-top: -40px;
   position: absolute;
   right: 68px;
 }
@@ -214,16 +214,19 @@ body {
 
 .name_box {
   height: 14px;
-  width: 150px;
-  top: 0;
-  left: 40px;
+  width: 120px;
+  top: 2px;
+  left: 50px;
   color: #FF7242;
   font-size: 0.9em;
-  padding: 10px;
+  padding: 11px;
   text-align: center;
   z-index: 100;
   margin: 10px 3px;
   position: absolute;
+  border-radius: 5px;
+  background-color: #0d0d0d;
+
 }
 
 
