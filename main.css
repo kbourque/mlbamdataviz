@@ -233,9 +233,9 @@ body {
 
 .name_box {
   height: 14px;
-  width: 120px;
+  width: 140px;
   top: 5px;
-  left: 50px;
+  left: 39px;
   color: #FF7242;
   font-size: 0.9em;
   padding: 11px;
@@ -247,8 +247,6 @@ body {
   background-color: #0d0d0d;
 
 }
-
-
 
 
 
@@ -269,7 +267,7 @@ body {
   padding: 10px;
   z-index: 99;
   margin: 55px 13px;
-  position: relative;;
+  position: relative;
   border-radius: 5px;
 }
 
