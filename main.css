@@ -371,7 +371,7 @@ h3 {
     display: inline-block;
     position: relative;
     width: 100%;
-    padding-bottom: 100%; 
+    padding-bottom: 100%;
     vertical-align: top;
     overflow: hidden;
 }
@@ -382,7 +382,7 @@ h3 {
     left: 0;
 } */
 
-/*#q6-spine {
+#q6-spine {
     width: 720px;
     height: 4px;
     background: #857c78;
@@ -392,7 +392,7 @@ section {
   margin: 10px 200px;
   padding: 0 50px;
 
-}*/
+}
 
 .start_container {
   padding: 0px;
@@ -410,6 +410,6 @@ section {
 
 
 
-/*.goAway {
+.goAway {
   display: none;
-}*/
+}
