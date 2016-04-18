@@ -108,7 +108,7 @@ var player = {
     }
     dataset3 = data;
     padding = 65;
-    w2 = 1450,
+    w2 = 1350,
     h2 = 800,
     margin = {
         top: 20,
@@ -519,10 +519,15 @@ $(document).ready(function () {
     $('.pitcher_list1').toggleClass('goAway');
     $('.pitcher_list2').toggleClass('goAway');
     $('.b_button').toggleClass('button_selected');
+    $('.p_option_list').toggleClass('goAway');
+
 
     $('.b_button').click( function() {
       $('.b_button').toggleClass('button_selected');
       $('.p_button').removeClass('button_selected');
+
+      $('.p_option_list').toggleClass('goAway');
+      $('.b_option_list').removeClass('goAway');
 
       $('.pitcher_list1').toggleClass('goAway');
       $('.pitcher_list2').toggleClass('goAway');
@@ -535,6 +540,9 @@ $(document).ready(function () {
     $('.p_button').click( function() {
       $('.p_button').toggleClass('button_selected');
       $('.b_button').removeClass('button_selected');
+
+      $('.b_option_list').toggleClass('goAway');
+      $('.p_option_list').removeClass('goAway');
 
       $('.batter_list1').toggleClass('goAway');
       $('.batter_list2').toggleClass('goAway');
