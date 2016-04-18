@@ -50,8 +50,6 @@ var player = {
 ok:this,
 resetter:function(member, player) {
     d3.selectAll("svg")
-    .transition()
-    .duration(500)
     .remove();
     // newData2 = eval(d3.select(this).property('value'));
     this.start(member, player);
