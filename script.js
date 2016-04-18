@@ -483,9 +483,12 @@ $(document).ready(function () {
     var cancompare = 0;
     $('.pitcher_list1').toggleClass('goAway');
     $('.pitcher_list2').toggleClass('goAway');
-
+    $('.b_button').toggleClass('button_selected');
 
     $('.b_button').click( function() {
+      $('.b_button').toggleClass('button_selected');
+      $('.p_button').removeClass('button_selected');
+
       $('.pitcher_list1').toggleClass('goAway');
       $('.pitcher_list2').toggleClass('goAway');
 
@@ -495,6 +498,9 @@ $(document).ready(function () {
 
 
     $('.p_button').click( function() {
+      $('.p_button').toggleClass('button_selected');
+      $('.b_button').removeClass('button_selected');
+
       $('.batter_list1').toggleClass('goAway');
       $('.batter_list2').toggleClass('goAway');
 

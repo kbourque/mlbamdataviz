@@ -80,18 +80,17 @@ body {
   border: 2px solid #ff7242;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
-  color: white;
+  color: #FF7242;
   font-size: 0.8em;
   padding: 10px;
   text-align: center;
   z-index: 100;
   margin: 10px -3px;
   display: inline-block;
-  background-color: #ff7242;
+  background-color: #262626;
   cursor: pointer;
   transition: background-color 0.5s ease;
   transition: color 0.5s ease;
-  font-weight: bold;
 }
 
 .p_button {
@@ -120,6 +119,12 @@ body {
 .p_button:hover {
   background-color: #FF7242;
   color: white;
+}
+
+.button_selected {
+  background-color: #FF7242;
+  color: white;
+  font-weight: bold;
 }
 
 
