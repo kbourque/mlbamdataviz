@@ -79,8 +79,8 @@ var player = {
     data.forEach(function(d){d['Season'] = +d['Season']});
     dataset3 = data;
     padding = 65;
-    w2 = 1500,
-    h2 = 750,
+    w2 = 1450,
+    h2 = 800,
     margin = {
         top: 20,
         right: 20,
