@@ -328,6 +328,25 @@ ul.p_option_list li {
   cursor: pointer;
 }
 
+.reset {
+  display: inline;
+  height: 14px;
+  max-width: 900px;
+  border: 2px solid #FF7242;
+  border-radius: 5px;
+  color: #FF7242;
+  font-size: 0.8em;
+  padding: 10px 30px;
+  margin: 16px 20px;
+  text-align: center;
+  background-color: #333333;
+
+  z-index: 100;
+  transition: background-color 1s ease;
+  transition: color 0.5s ease;
+  cursor: pointer;
+}
+
 .option_container:hover {
   background-color: #FF7242;
   color: white;

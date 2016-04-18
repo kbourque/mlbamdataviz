@@ -24,6 +24,10 @@ var v2 = 'Homers';
 var v3 = 'Hits';
 var v4 = 'RBIs';
 var v5 = 'Runs';
+var v6 = 'Wins';
+var v7 = 'Losses';
+var v8 = 'Strikeouts';
+var v9 = 'ERA';
 var baber = 'baberuth'
 var albertp = 'albertpujols';
 var barryb = 'barrybonds';
@@ -54,6 +58,9 @@ var cancompare = 0;
 var compplayer;
 var currplayer = 'baberuth';
 
+var currplayerval;
+var compplayerval;
+
 var newData = 'WAR';
 
 //everything relying on data within baberuth.csv must be contained here
@@ -75,6 +82,7 @@ var player = {
                         d3.select('.start_container')
                             .remove();
                         currplayer = eval(d3.select(this).property('id'));
+                        currplayerval = d3.select(this).property('id');
                         cancompare = 1;
                         started = 1;
                         if (d3.select(this)
@@ -237,13 +245,26 @@ var player = {
         .attr("transform", "translate("+ (w2/2) +","+(h2)+")")
         .text("Year");
 
+    d3.selectAll(".reset")
+        .on('click', function() {
+           cancompare = 0;
+           console.log("got here");
+            if (d3.select("#" + currplayerval).classed("pitcher")) {
+                console.log("got in first loop");
+                lol.resetter(currplayer, lol, 1);
+            } else {
+                lol.resetter(currplayer, lol, 0);
+            }
+        });
 
 
     //triggered when option is changed on drop down menu
     d3.selectAll(".option_container")
         .on('click', function() {
-            newData = eval(d3.select(this).property('id'));
-            updateLegend(newData);
+            var check = d3.select(this).property('id');
+         newData = eval(d3.select(this).property('id'));
+            if (check != 'reset') {
+                 updateLegend(newData);
             if (cancompare > 0) {
                 if (d3.select("#" + compplayer).classed("pitcher")) {
                     compare(compplayer, newData, 1);
@@ -254,6 +275,7 @@ var player = {
                     .remove();
                 d3.selectAll('.circles')
                     .remove();
+            }
             }
         });
 
@@ -267,6 +289,7 @@ var player = {
             var pitch = d3.select(this).classed("pitcher");
             if (cancompare == 0) {
                 currplayer = eval(d3.select(this).property('id'));
+                currplayerval = d3.select(this).property('id');
                 cancompare = 1;
                 if (pitch) {
                     lol.resetter(currplayer, lol, 1);
@@ -275,6 +298,7 @@ var player = {
                 }
             } else {
                 compplayer = eval(d3.select(this).property('id'));
+                compplayerval = d3.select(this).property('id');
                 if (cancompare == 1) {
                     cancompare = 2;
                 } else {
@@ -291,15 +315,6 @@ var player = {
                 }
         }
     });
-    d3.select("#reset")
-        .on('click', function() {
-            cancompare = 0;
-            if (d3.select("#" + currplayer).classed("pitcher")) {
-                lol.resetter(currplayer, lol, 1);
-            } else {
-                lol.resetter(currplayer, lol, 0);
-            }
-        });
 
     function compare(player, stat, pitch) {
         d3.csv(player+'.csv', function(data) {
