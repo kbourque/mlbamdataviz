@@ -1,9 +1,3 @@
-
-d3.select('.start_sign')
-    .on('click', function() {
-        console.log('hi');
-    });
-
 // must be declared outside
 var started = 0;
 var dataset3;
@@ -85,8 +79,8 @@ var player = {
     data.forEach(function(d){d['Season'] = +d['Season']});
     dataset3 = data;
     padding = 65;
-    w2 = 1200,
-    h2 = 600,
+    w2 = 1500,
+    h2 = 750,
     margin = {
         top: 20,
         right: 20,
@@ -114,10 +108,14 @@ var player = {
             .orient("left");
 
     vis = d3.select('.graph')
-            .append("div")
             .append("svg")
-            .attr('width', w2)
-            .attr('height', h2);
+            .attr('id', 'graphsvg')
+            .attr('width', '100%')
+            .attr('height', '100%')
+            .attr('viewBox', "0 0 " + w2 + " " + h2)
+            .attr('preserveAspectRatio', "xMidYMid meet");
+
+
     // attaching axes to DOM, x and y axis respectively
     vis.append("g")
     .attr("class", "axis")
@@ -208,6 +206,8 @@ var player = {
         .attr("transform", "translate("+ (w2/2) +","+(h2)+")")
         .text("Year");
 
+
+
     //triggered when option is changed on drop down menu
     d3.selectAll(".option_container")
         .on('click', function() {
@@ -222,6 +222,7 @@ var player = {
                     .remove();
             }
         });
+
     // d3.selectAll(".player_circle")
     //     .on('click', function() {
     //         currplayer = eval(d3.select(this).property('id'));
@@ -480,11 +481,8 @@ player.start('baberuth', player);
 
 /** Manage all jQuery here */
 $(document).ready(function () {
+
     var cancompare = 0;
-
-    $(document).ready( function() {
-
-    });
 
     $('.player_circle').mouseenter( function() {
       $('.name_box').text(this.alt);

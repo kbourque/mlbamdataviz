@@ -348,7 +348,7 @@ h3 {
   margin: 0 0 0 7px;
 }
 
-/*.svg-container {
+.svg-container {
     display: inline-block;
     position: relative;
     width: 100%;
@@ -361,7 +361,7 @@ h3 {
     position: absolute;
     top: 10px;
     left: 0;
-} */
+} 
 
 /*#q6-spine {
     width: 720px;
