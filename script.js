@@ -482,7 +482,17 @@ player.start('baberuth', player);
 $(document).ready(function () {
     var cancompare = 0;
 
-    $(document).ready( function() {
+
+
+    $('.b_button').click( function() {
+
+
+    });
+
+
+    $('.p_button').click( function() {
+
+
 
     });
 

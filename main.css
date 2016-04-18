@@ -176,6 +176,25 @@ body {
   right: 68px;
 }
 
+.pitcher_list1 {
+  padding: 0px;
+  list-style: none;
+  width: 50px;
+  margin-top: -35px;
+  position: absolute;
+  left: 28px;
+}
+
+.pitcher_list2 {
+  padding: 0px;
+  list-style: none;
+  width: 50px;
+  margin-top: -35px;
+  position: absolute;
+  right: 68px;
+}
+
+
 .player_circle {
   margin: 7px 5px;
   width: 70px;
