@@ -300,7 +300,7 @@ ul.option_list li {
 }
 
 #reset {
-  margin-left: 80px;
+  margin-left: 70px;
   border: 1px solid #FF7242;
   background-color: #262626;
   padding: 7px 15px;
@@ -344,6 +344,18 @@ h3 {
   font-weight: 400;
   color: white;
   margin: 0 0 0 7px;
+}
+
+.start_container {
+  max-width: 600px;
+  max-height: 300px;
+  margin: auto;
+  position: relative;
+  top: 300px;
+}
+.start_sign {
+  width: 600px;
+  margin: 10px 50px;
 }
 
 /*#q6-spine {

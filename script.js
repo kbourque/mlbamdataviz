@@ -426,11 +426,15 @@ d3.csv(player+'.csv', function(data){
 });
 }
 }
+
+
 player.start('baberuth', player);
 
 
 $(document).ready(function () {
     var cancompare = 0;
+
+
 
     $('.player_circle').mouseenter( function() {
       $('.name_box').text(this.alt);
