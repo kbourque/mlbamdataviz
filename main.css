@@ -17,7 +17,7 @@ body {
   right: 0;
   left: 0;
   position: fixed;
-  height: 70px;
+  height: 60px;
   z-index: 99;
   background-color: #FF7242;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
@@ -35,7 +35,7 @@ body {
   height: 60px;
   width: 100%;
   vertical-align: middle;
-  margin: -3px 21px;
+  margin: -23px 21px;
 }
 .logo_container2 {
   height: 60px;
@@ -48,8 +48,8 @@ body {
   position: absolute;
 }
 .menu_logo {
-  height: 55px;
-  margin: 9px auto;
+  height: 52px;
+  margin: 6px auto;
 }
 
 .sign_container {
@@ -148,7 +148,7 @@ body {
   float: left;
   width: 250px;
   min-height: 445px;
-  top: 170px;
+  top: 140px;
   left: 0;
   position: fixed;
   z-index: 97;
@@ -234,7 +234,7 @@ body {
 
 
 .lower_header {
-  top: 70px;
+  top: 40px;
   left: 250px;
   right: 0;
   height: 100px;
@@ -267,7 +267,7 @@ body {
   padding: 0px;
   list-style: none;
   max-width: 900px;
-  margin: 40px auto;
+  margin: 51px auto;
   position: relative;
 }
 
