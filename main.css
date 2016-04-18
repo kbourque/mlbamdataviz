@@ -285,7 +285,7 @@ body {
 }
 
 
-.option_list {
+.b_option_list {
   padding: 0px;
   list-style: none;
   max-width: 900px;
@@ -293,7 +293,19 @@ body {
   position: relative;
 }
 
-ul.option_list li {
+ul.b_option_list li {
+  display: inline;
+}
+
+.p_option_list {
+  padding: 0px;
+  list-style: none;
+  max-width: 900px;
+  margin: 51px auto;
+  position: relative;
+}
+
+ul.p_option_list li {
   display: inline;
 }
 
@@ -401,7 +413,7 @@ section {
 }
 .start_sign {
   width: 600px;
-  margin: 10px 10px;
+  margin: 10px -40px;
 }
 
 
