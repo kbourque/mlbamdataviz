@@ -389,7 +389,7 @@ var player = {
         //         console.log(w2);
         //         console.log(h2);
         //         console.log(margin);
-                   
+
         //           /* Find the new window dimensions */
         //         w2 = w2 - margin.right - margin.left,
         //         h2 = h2 - margin.top - margin.bottom;
@@ -397,7 +397,7 @@ var player = {
         //         xScale.range([padding, w2-padding*2]);
         //         yScale.range([h2-padding, padding]);
 
-        //          Update the axis with the new scale 
+        //          Update the axis with the new scale
         //         vis.select('#xaxis')
         //           .attr("transform", "translate(0," + h2 + ")")
         //           .call(xAxis);
@@ -405,7 +405,7 @@ var player = {
         //         vis.select('#yaxis')
         //           .call(yAxis);
 
-        //         //  Force D3 to recalculate and update the line 
+        //         //  Force D3 to recalculate and update the line
         //         // graph.selectAll('.line')
         //         //   .attr("d", line);
         //         // }
@@ -483,6 +483,32 @@ player.start('baberuth', player);
 $(document).ready(function () {
 
     var cancompare = 0;
+    $('.pitcher_list1').toggleClass('goAway');
+    $('.pitcher_list2').toggleClass('goAway');
+    $('.b_button').toggleClass('button_selected');
+
+    $('.b_button').click( function() {
+      $('.b_button').toggleClass('button_selected');
+      $('.p_button').removeClass('button_selected');
+
+      $('.pitcher_list1').toggleClass('goAway');
+      $('.pitcher_list2').toggleClass('goAway');
+
+      $('.batter_list1').removeClass('goAway');
+      $('.batter_list2').removeClass('goAway');
+    });
+
+
+    $('.p_button').click( function() {
+      $('.p_button').toggleClass('button_selected');
+      $('.b_button').removeClass('button_selected');
+
+      $('.batter_list1').toggleClass('goAway');
+      $('.batter_list2').toggleClass('goAway');
+
+      $('.pitcher_list1').removeClass('goAway');
+      $('.pitcher_list2').removeClass('goAway');
+    });
 
     $('.player_circle').mouseenter( function() {
       $('.name_box').text(this.alt);
