@@ -212,6 +212,8 @@ var player = {
             fill: '#FFFFE4'
         })
         .attr("stroke-width", "4")
+        .append("svg:title")
+        .text(function(d) { return d.x; })
 
     // circles.append("circle")
     // .attr({
@@ -241,7 +243,6 @@ var player = {
     d3.selectAll(".option_container")
         .on('click', function() {
             newData = eval(d3.select(this).property('id'));
-            console.log(newData);
             updateLegend(newData);
             if (cancompare > 0) {
                 if (d3.select("#" + compplayer).classed("pitcher")) {
@@ -298,7 +299,7 @@ var player = {
             } else {
                 lol.resetter(currplayer, lol, 0);
             }
-        })
+        });
 
     function compare(player, stat, pitch) {
         d3.csv(player+'.csv', function(data) {
