@@ -147,7 +147,7 @@ body {
 .circle_box {
   float: left;
   width: 250px;
-  min-height: 445px;
+  min-height: 450px;
   top: 140px;
   left: 0;
   position: fixed;
@@ -162,7 +162,7 @@ body {
   padding: 0px;
   list-style: none;
   width: 50px;
-  margin-top: -40px;
+  margin-top: -35px;
   position: absolute;
   left: 28px;
 }
@@ -171,7 +171,7 @@ body {
   padding: 0px;
   list-style: none;
   width: 50px;
-  margin-top: -40px;
+  margin-top: -35px;
   position: absolute;
   right: 68px;
 }
@@ -215,7 +215,7 @@ body {
 .name_box {
   height: 14px;
   width: 120px;
-  top: 2px;
+  top: 5px;
   left: 50px;
   color: #FF7242;
   font-size: 0.9em;
@@ -366,11 +366,10 @@ section {
   margin: 10px 10px;
 }
 
-/*#q6-spine {
-    width: 720px;
-    height: 4px;
-    background: #857c78;
-    border-radius: 2px;
-    position: absolute;
 
-}*/
+
+
+
+.goAway {
+  display: none;
+}

@@ -430,7 +430,7 @@ d3.csv(player+'.csv', function(data){
 
 player.start('baberuth', player);
 
-
+/** Manage all jQuery here */
 $(document).ready(function () {
     var cancompare = 0;
 
@@ -446,7 +446,7 @@ $(document).ready(function () {
     });
 
     $('.player_circle').click( function() {
-      
+        $('.start_container').toggleClass('goAway');
         if (cancompare === 0) {
             $(this).toggleClass('lol');
             $('.blue_box').text('');
