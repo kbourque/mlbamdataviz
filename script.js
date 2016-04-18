@@ -434,7 +434,9 @@ player.start('baberuth', player);
 $(document).ready(function () {
     var cancompare = 0;
 
+    $(document).ready( function() {
 
+    });
 
     $('.player_circle').mouseenter( function() {
       $('.name_box').text(this.alt);
@@ -444,6 +446,7 @@ $(document).ready(function () {
     });
 
     $('.player_circle').click( function() {
+      
         if (cancompare === 0) {
             $(this).toggleClass('lol');
             $('.blue_box').text('');
