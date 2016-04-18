@@ -95,6 +95,7 @@ d3.csv(player+'.csv', function(data){
             .orient("left");
 
     vis = d3.select('.graph')
+            .append("div")
             .append("svg")
             .attr('width', w2)
             .attr('height', h2);
@@ -364,8 +365,34 @@ d3.csv(player+'.csv', function(data){
             .attr("cy", function(d) {
                 return yScale(eval('d.' + stat));
             });
-        });
+        // function resize() {
+        //         console.log(w2);
+        //         console.log(h2);
+        //         console.log(margin);
+                   
+        //           /* Find the new window dimensions */
+        //         w2 = w2 - margin.right - margin.left,
+        //         h2 = h2 - margin.top - margin.bottom;
 
+        //         xScale.range([padding, w2-padding*2]);
+        //         yScale.range([h2-padding, padding]);
+
+        //          Update the axis with the new scale 
+        //         vis.select('#xaxis')
+        //           .attr("transform", "translate(0," + h2 + ")")
+        //           .call(xAxis);
+
+        //         vis.select('#yaxis')
+        //           .call(yAxis);
+
+        //         //  Force D3 to recalculate and update the line 
+        //         // graph.selectAll('.line')
+        //         //   .attr("d", line);
+        //         // }
+        // }
+        // //resizing event listener
+        // d3.select(window).on("resize", resize);
+        });
 
     }
 
