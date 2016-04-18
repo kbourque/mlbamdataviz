@@ -108,7 +108,7 @@ var player = {
     }
     dataset3 = data;
     padding = 65;
-    w2 = 1450,
+    w2 = 1350,
     h2 = 800,
     margin = {
         top: 20,
