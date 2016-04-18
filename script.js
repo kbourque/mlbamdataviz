@@ -36,7 +36,17 @@ var tyc = 'tycobb';
 var williem = 'williemays';
 var obj;
 
-var albertpc = 'albertpujols'
+var bobg = 'bobgibson'
+var christym = 'christymathewson';
+var cyy = 'cyyoung';
+var dond = 'dondrysdale';
+var eddiep = 'eddieplank';
+var leftyg = 'leftygrove';
+var rogerc = 'rogerclemens';
+var toms = 'tomseaver';
+var walterj = 'walterjohnson';
+var petea = 'petealexander';
+
 
 var compdata;
 var cancompare = 0;
@@ -49,34 +59,53 @@ var newData = 'WAR';
 //everything relying on data within baberuth.csv must be contained here
 var player = {
     ok:this,
-    resetter:function(member, player) {
+    resetter:function(member, player, pitch) {
         d3.selectAll("svg")
         .remove();
         // newData2 = eval(d3.select(this).property('value'));
-        this.start(member, player);
+        this.start(member, player, pitch);
     },
-    start:function(player, lol) {
+    start:function(player, lol, pitcher) {
         d3.csv(player+'.csv', function(data){
             if (started == 0) {
                 console.log("hi")
                 d3.selectAll('.player_circle')
                     .on('click', function() {
+                        console.log(d3.select(this));
                         d3.select('.start_container')
                             .remove();
                         currplayer = eval(d3.select(this).property('id'));
                         cancompare = 1;
                         started = 1;
-                        lol.start(currplayer, lol);
+                        if (d3.select(this)
+                            .classed("pitcher")) {
+                            lol.start(currplayer, lol, 1);
+                        }
+                        else {
+                            lol.start(currplayer, lol, 0);
+                        }
                     });
             } else {
                  // importing data from CSV file
-    data.forEach(function(d){ d['Year'] = +d['Year']; });
-    data.forEach(function(d){ d['WAR'] = +d['WAR']; });
-    data.forEach(function(d){d['Homers'] = +d['Homers']});
-    data.forEach(function(d){d['Hits'] = +d['Hits']});
-    data.forEach(function(d){d['RBIs'] = +d['RBIs']});
-    data.forEach(function(d){d['Runs'] = +d['Runs']});
-    data.forEach(function(d){d['Season'] = +d['Season']});
+    if ( pitcher == 0 ) {
+        data.forEach(function(d){ d['Year'] = +d['Year']; });
+        data.forEach(function(d){ d['WAR'] = +d['WAR']; });
+        data.forEach(function(d){d['Homers'] = +d['Homers']});
+        data.forEach(function(d){d['Hits'] = +d['Hits']});
+        data.forEach(function(d){d['RBIs'] = +d['RBIs']});
+        data.forEach(function(d){d['Runs'] = +d['Runs']});
+        data.forEach(function(d){d['Season'] = +d['Season']});
+    } else {
+        data.forEach(function(d){ d['Year'] = +d['Year']; });
+        data.forEach(function(d){ d['WAR'] = +d['WAR']; });
+        data.forEach(function(d){d['Wins'] = +d['Wins']});
+        data.forEach(function(d){d['Losses'] = +d['Losses']});
+        data.forEach(function(d){d['Strikeouts'] = +d['Strikeouts']});
+        data.forEach(function(d){d['ERA'] = +d['ERA']});
+        data.forEach(function(d){d['EarnedRuns'] = +d['EarnedRuns']});
+        data.forEach(function(d){d['WHIP'] = +d['WHIP']});
+        data.forEach(function(d){d['Season'] = +d['Season']});
+    }
     dataset3 = data;
     padding = 65;
     w2 = 1450,
@@ -215,7 +244,11 @@ var player = {
             console.log(newData);
             updateLegend(newData);
             if (cancompare > 0) {
-                compare(compplayer, newData);
+                if (d3.select("#" + compplayer).classed("pitcher")) {
+                    compare(compplayer, newData, 1);
+                } else {
+                    compare(compplayer, newData, 0);
+                }
                 d3.selectAll('.linez')
                     .remove();
                 d3.selectAll('.circles')
@@ -230,10 +263,15 @@ var player = {
     //     });
     d3.selectAll(".player_circle")
         .on('click', function() {
+            var pitch = d3.select(this).classed("pitcher");
             if (cancompare == 0) {
                 currplayer = eval(d3.select(this).property('id'));
-                lol.resetter(currplayer, lol);
                 cancompare = 1;
+                if (pitch) {
+                    lol.resetter(currplayer, lol, 1);
+                } else {
+                    lol.resetter(currplayer, lol, 0);
+                }
             } else {
                 compplayer = eval(d3.select(this).property('id'));
                 if (cancompare == 1) {
@@ -244,24 +282,45 @@ var player = {
                     d3.selectAll('.circles')
                         .remove();
                 }
-                compare(compplayer, newData);
-            }
-        });
+                if (pitch) {
+                    compare(compplayer, newData, 1);
+                }
+                else {
+                    compare(compplayer, newData, 0);
+                }
+        }
+    });
     d3.select("#reset")
         .on('click', function() {
             cancompare = 0;
-            lol.resetter(currplayer, lol);
+            if (d3.select("#" + currplayer).classed("pitcher")) {
+                lol.resetter(currplayer, lol, 1);
+            } else {
+                lol.resetter(currplayer, lol, 0);
+            }
         })
 
-    function compare(player, stat) {
+    function compare(player, stat, pitch) {
         d3.csv(player+'.csv', function(data) {
-            data.forEach(function(d){ d['Year'] = +d['Year']; });
-            data.forEach(function(d){ d['WAR'] = +d['WAR']; });
-            data.forEach(function(d){d['Homers'] = +d['Homers']});
-            data.forEach(function(d){d['Hits'] = +d['Hits']});
-            data.forEach(function(d){d['RBIs'] = +d['RBIs']});
-            data.forEach(function(d){d['Runs'] = +d['Runs']});
-            data.forEach(function(d){d['Season'] = +d['Season']});
+            if (pitch == 0) {
+                data.forEach(function(d){ d['Year'] = +d['Year']; });
+                data.forEach(function(d){ d['WAR'] = +d['WAR']; });
+                data.forEach(function(d){d['Homers'] = +d['Homers']});
+                data.forEach(function(d){d['Hits'] = +d['Hits']});
+                data.forEach(function(d){d['RBIs'] = +d['RBIs']});
+                data.forEach(function(d){d['Runs'] = +d['Runs']});
+                data.forEach(function(d){d['Season'] = +d['Season']});
+            } else {
+                data.forEach(function(d){ d['Year'] = +d['Year']; });
+                data.forEach(function(d){ d['WAR'] = +d['WAR']; });
+                data.forEach(function(d){d['Wins'] = +d['Wins']});
+                data.forEach(function(d){d['Losses'] = +d['Losses']});
+                data.forEach(function(d){d['Strikeouts'] = +d['Strikeouts']});
+                data.forEach(function(d){d['ERA'] = +d['ERA']});
+                data.forEach(function(d){d['EarnedRuns'] = +d['EarnedRuns']});
+                data.forEach(function(d){d['WHIP'] = +d['WHIP']});
+                data.forEach(function(d){d['Season'] = +d['Season']});
+            }
 
             //adding comparison data
             datasetcomp = data;
@@ -385,33 +444,6 @@ var player = {
             .attr("cy", function(d) {
                 return yScale(eval('d.' + stat));
             });
-        // function resize() {
-        //         console.log(w2);
-        //         console.log(h2);
-        //         console.log(margin);
-
-        //           /* Find the new window dimensions */
-        //         w2 = w2 - margin.right - margin.left,
-        //         h2 = h2 - margin.top - margin.bottom;
-
-        //         xScale.range([padding, w2-padding*2]);
-        //         yScale.range([h2-padding, padding]);
-
-        //          Update the axis with the new scale
-        //         vis.select('#xaxis')
-        //           .attr("transform", "translate(0," + h2 + ")")
-        //           .call(xAxis);
-
-        //         vis.select('#yaxis')
-        //           .call(yAxis);
-
-        //         //  Force D3 to recalculate and update the line
-        //         // graph.selectAll('.line')
-        //         //   .attr("d", line);
-        //         // }
-        // }
-        // //resizing event listener
-        // d3.select(window).on("resize", resize);
         });
 
     }
