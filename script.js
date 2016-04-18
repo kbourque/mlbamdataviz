@@ -1,4 +1,11 @@
+
+d3.select('.start_sign')
+    .on('click', function() {
+        console.log('hi');
+    });
+
 // must be declared outside
+var started = 0;
 var dataset3;
 var datasetcomp;
 var margin;
@@ -47,16 +54,28 @@ var newData = 'WAR';
 
 //everything relying on data within baberuth.csv must be contained here
 var player = {
-ok:this,
-resetter:function(member, player) {
-    d3.selectAll("svg")
-    .remove();
-    // newData2 = eval(d3.select(this).property('value'));
-    this.start(member, player);
-},
-start:function(player, lol) {
-d3.csv(player+'.csv', function(data){
-    // importing data from CSV file
+    ok:this,
+    resetter:function(member, player) {
+        d3.selectAll("svg")
+        .remove();
+        // newData2 = eval(d3.select(this).property('value'));
+        this.start(member, player);
+    },
+    start:function(player, lol) {
+        d3.csv(player+'.csv', function(data){
+            if (started == 0) {
+                console.log("hi")
+                d3.selectAll('.player_circle')
+                    .on('click', function() {
+                        d3.select('.start_container')
+                            .remove();
+                        currplayer = eval(d3.select(this).property('id'));
+                        cancompare = 1;
+                        started = 1;
+                        lol.start(currplayer, lol);
+                    });
+            } else {
+                 // importing data from CSV file
     data.forEach(function(d){ d['Year'] = +d['Year']; });
     data.forEach(function(d){ d['WAR'] = +d['WAR']; });
     data.forEach(function(d){d['Homers'] = +d['Homers']});
@@ -450,14 +469,22 @@ d3.csv(player+'.csv', function(data){
         .attr("transform", "translate("+ (padding/3+10) +","+(h2/2)+")rotate(-90)")
         .text(newData);
     }
-});
 }
-}
+
+            });
+        }
+    }
+
 player.start('baberuth', player);
 
 
+/** Manage all jQuery here */
 $(document).ready(function () {
     var cancompare = 0;
+
+    $(document).ready( function() {
+
+    });
 
     $('.player_circle').mouseenter( function() {
       $('.name_box').text(this.alt);
@@ -467,6 +494,7 @@ $(document).ready(function () {
     });
 
     $('.player_circle').click( function() {
+        // $('.start_container').toggleClass('goAway');
         if (cancompare === 0) {
             $(this).toggleClass('lol');
             $('.blue_box').text('');

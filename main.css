@@ -147,7 +147,7 @@ body {
 .circle_box {
   float: left;
   width: 250px;
-  min-height: 445px;
+  min-height: 450px;
   top: 140px;
   left: 0;
   position: fixed;
@@ -162,7 +162,7 @@ body {
   padding: 0px;
   list-style: none;
   width: 50px;
-  margin-top: -40px;
+  margin-top: -35px;
   position: absolute;
   left: 28px;
 }
@@ -171,7 +171,7 @@ body {
   padding: 0px;
   list-style: none;
   width: 50px;
-  margin-top: -40px;
+  margin-top: -35px;
   position: absolute;
   right: 68px;
 }
@@ -215,7 +215,7 @@ body {
 .name_box {
   height: 14px;
   width: 120px;
-  top: 2px;
+  top: 5px;
   left: 50px;
   color: #FF7242;
   font-size: 0.9em;
@@ -300,7 +300,7 @@ ul.option_list li {
 }
 
 #reset {
-  margin-left: 80px;
+  margin-left: 70px;
   border: 1px solid #FF7242;
   background-color: #262626;
   padding: 7px 15px;
@@ -326,7 +326,9 @@ select {
 
 .graph {
   background-color: #f2f2f2;
-  margin-top: 200px;
+  margin: 200px auto;
+  width: 100%;
+  height: 100%;
 }
 
 
@@ -346,11 +348,11 @@ h3 {
   margin: 0 0 0 7px;
 }
 
-.svg-container {
+/*.svg-container {
     display: inline-block;
     position: relative;
     width: 100%;
-    padding-bottom: 100%; /* aspect ratio */
+    padding-bottom: 100%; 
     vertical-align: top;
     overflow: hidden;
 }
@@ -359,7 +361,7 @@ h3 {
     position: absolute;
     top: 10px;
     left: 0;
-}
+} */
 
 /*#q6-spine {
     width: 720px;
@@ -367,5 +369,28 @@ h3 {
     background: #857c78;
     border-radius: 2px;
     position: absolute;
+section {
+  margin: 10px 200px;
+  padding: 0 50px;
 
+}*/
+
+.start_container {
+  padding: 0px;
+  max-width: 600px;
+  margin: 51px auto;
+  position: relative;
+  top: 300px;
+}
+.start_sign {
+  width: 600px;
+  margin: 10px 10px;
+}
+
+
+
+
+
+/*.goAway {
+  display: none;
 }*/
