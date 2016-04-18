@@ -248,13 +248,21 @@ var player = {
     d3.selectAll(".reset")
         .on('click', function() {
            cancompare = 0;
-           console.log("got here");
-            if (d3.select("#" + currplayerval).classed("pitcher")) {
-                console.log("got in first loop");
-                lol.resetter(currplayer, lol, 1);
-            } else {
-                lol.resetter(currplayer, lol, 0);
-            }
+            // if (d3.select("#" + currplayerval).classed("pitcher")) {
+            //     lol.resetter(currplayer, lol, 1);
+            // } else {
+            //     lol.resetter(currplayer, lol, 0);
+            // }
+             d3.selectAll("svg").remove();
+             d3.selectAll('.poster_section')
+                .append('div')
+                .attr('class', 'start_container')
+                .attr('position', 'relative')
+                .attr('top', '-1000')
+                .append('img')
+                .attr('class', 'start_sign')
+                .attr('src', 'media/start.png');
+
         });
 
 
@@ -288,6 +296,16 @@ var player = {
         .on('click', function() {
             var pitch = d3.select(this).classed("pitcher");
             if (cancompare == 0) {
+                // temp = eval(d3.select(this).property('id'));
+                // if (currplayer == temp) {
+                //     console.log('got in here');
+                //     d3.selectAll("svg").remove();
+                //     cancompare = 0;
+                //     return;
+                // } else {
+                //     console.log('goit in second');
+                //     currplayer = temp;
+                // }
                 currplayer = eval(d3.select(this).property('id'));
                 currplayerval = d3.select(this).property('id');
                 cancompare = 1;
@@ -298,6 +316,15 @@ var player = {
                 }
             } else {
                 compplayer = eval(d3.select(this).property('id'));
+                // if (currplayer == temp) {
+                //     console.log('got in here');
+                //     d3.selectAll("svg").remove();
+                //     cancompare = 0;
+                //     return;
+                // } else {
+                //     console.log('goit in second');
+                //     compplayer = temp;
+                // }
                 compplayerval = d3.select(this).property('id');
                 if (cancompare == 1) {
                     cancompare = 2;
@@ -573,8 +600,13 @@ $(document).ready(function () {
       $('.name_box').text('');
     });
 
-    $('.player_circle').click( function() {
-        // $('.start_container').toggleClass('goAway');
+    $('.player_circle').click( function(event) {
+        // temp = eval(event.target.id);
+        // console.log(currplayer);
+        // if (temp == currplayer) {
+        //     $(this).toggleClass('lol');
+        //     return;
+        // }
         if (cancompare === 0) {
             $(this).toggleClass('lol');
             $('.blue_box').text('');
