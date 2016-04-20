@@ -274,7 +274,7 @@ var player = {
             if (check != 'reset') {
                  updateLegend(newData);
             if (cancompare > 0) {
-                if (d3.select("#" + compplayerval).classed("pitcher")) {
+                if (d3.select("#" + compplayer).classed("pitcher")) {
                     compare(compplayer, newData, 1);
                 } else {
                     compare(compplayer, newData, 0);
@@ -295,7 +295,6 @@ var player = {
     d3.selectAll(".player_circle")
         .on('click', function() {
             var pitch = d3.select(this).classed("pitcher");
-            console.log(pitch);
             if (cancompare == 0) {
                 // temp = eval(d3.select(this).property('id'));
                 // if (currplayer == temp) {
@@ -317,7 +316,6 @@ var player = {
                 }
             } else {
                 compplayer = eval(d3.select(this).property('id'));
-                console.log(compplayer);
                 // if (currplayer == temp) {
                 //     console.log('got in here');
                 //     d3.selectAll("svg").remove();
@@ -622,13 +620,9 @@ $(document).ready(function () {
         }
     });
 
-    $('.reset').click( function() {
+    $('#reset').click( function() {
         $('.player_circle').removeClass('lol');
         $('.player_circle').removeClass('lol2');
         cancompare = 0;
-        $('.red_box').text('');
-        $('.blue_box').text('');
-
-
     })
 });
