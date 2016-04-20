@@ -69,10 +69,6 @@ var player = {
     resetter:function(member, player, pitch) {
         d3.selectAll("svg")
         .remove();
-        d3.selectAll('.linez')
-            .remove();
-        d3.selectAll('.circles')
-            .remove();
         // newData2 = eval(d3.select(this).property('value'));
         this.start(member, player, pitch);
     },
@@ -258,6 +254,8 @@ var player = {
                  lol.resetter(currplayer, lol, 0);
              }
              d3.selectAll("svg").remove();
+             d3.selectAll('.linez').remove();
+             d3.selectAll('.circles').remove();
              d3.selectAll('.poster_section')
                 .append('div')
                 .attr('class', 'start_container')
