@@ -622,7 +622,7 @@ $(document).ready(function () {
         }
     });
 
-    $('#reset').click( function() {
+    $('.resetting').click( function() {
         $('.player_circle').removeClass('lol');
         $('.player_circle').removeClass('lol2');
         cancompare = 0;
