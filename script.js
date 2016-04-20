@@ -192,7 +192,7 @@ var player = {
     //   .y(function(d) {
     //     return yScale(d.RBIs);
     //   })
-    //   .interpolate("cardinal");
+    //   .interpolate("linear");
 
     // lines =vis.append('svg:path')
     //     .attr('class', 'lines')
