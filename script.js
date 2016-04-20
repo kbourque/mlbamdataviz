@@ -69,6 +69,10 @@ var player = {
     resetter:function(member, player, pitch) {
         d3.selectAll("svg")
         .remove();
+        d3.selectAll('.linez')
+            .remove();
+        d3.selectAll('.circles')
+            .remove();
         // newData2 = eval(d3.select(this).property('value'));
         this.start(member, player, pitch);
     },
