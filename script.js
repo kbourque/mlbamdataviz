@@ -253,6 +253,7 @@ var player = {
              } else {
                  lol.resetter(currplayer, lol, 0);
              }
+             console.log("reset?")
              d3.selectAll("svg").remove();
              d3.selectAll('.linez').remove();
              d3.selectAll('.circles').remove();
