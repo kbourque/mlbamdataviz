@@ -174,7 +174,7 @@ var player = {
       .y(function(d) {
         return yScale(d.WAR);
       })
-      .interpolate("cardinal");
+      .interpolate("linear");
 
     vis.append('svg:path')
         .attr('class', 'lines')
@@ -419,7 +419,7 @@ var player = {
           .y(function(d) {
             return yScale(eval('d.' + stat));
           })
-          .interpolate("cardinal");
+          .interpolate("linear");
 
         d3.selectAll(".lines")
             .transition()
@@ -434,7 +434,7 @@ var player = {
       .y(function(d) {
         return yScale(eval('d.' + stat));
       })
-      .interpolate("cardinal");
+      .interpolate("linear");
         // .transition()
         // .duration(1000)
         // .attr('d', lineGen(datasetcomp));
@@ -516,7 +516,7 @@ var player = {
           .y(function(d) {
             return yScale(eval('d.' + newData));
           })
-          .interpolate("cardinal");
+          .interpolate("linear");
 
         d3.selectAll(".lines")
             .transition()
