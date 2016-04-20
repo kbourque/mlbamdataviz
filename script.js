@@ -248,11 +248,11 @@ var player = {
     d3.selectAll(".reset")
         .on('click', function() {
            cancompare = 0;
-            // if (d3.select("#" + currplayerval).classed("pitcher")) {
-            //     lol.resetter(currplayer, lol, 1);
-            // } else {
-            //     lol.resetter(currplayer, lol, 0);
-            // }
+            if (d3.select("#" + currplayerval).classed("pitcher")) {
+                 lol.resetter(currplayer, lol, 1);
+             } else {
+                 lol.resetter(currplayer, lol, 0);
+             }
              d3.selectAll("svg").remove();
              d3.selectAll('.poster_section')
                 .append('div')
