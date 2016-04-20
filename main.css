@@ -216,7 +216,7 @@ body {
   width: 70px;
   height: 70px;
   border-radius: 100%;
-  border: 4px solid #42FFD5;
+  border: 4px solid #1051B5;
   cursor: pointer;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
   transition: border 0.5s ease;
@@ -227,7 +227,7 @@ body {
   width: 70px;
   height: 70px;
   border-radius: 100%;
-  border: 4px solid #FF425A;
+  border: 4px solid #CA0020;
   cursor: pointer;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
   transition: border 0.5s ease;
@@ -277,11 +277,11 @@ body {
 }
 
 .blue_box {
-  color: #42FFD5;
+  color: #1051B5;
 }
 
 .red_box {
-  color: #FF425A;
+  color: #CA0020;
 }
 
 
@@ -310,25 +310,6 @@ ul.p_option_list li {
 }
 
 .option_container {
-  display: inline;
-  height: 14px;
-  max-width: 900px;
-  border: 2px solid #FF7242;
-  border-radius: 5px;
-  color: #FF7242;
-  font-size: 0.8em;
-  padding: 10px 30px;
-  margin: 16px 20px;
-  text-align: center;
-  background-color: #333333;
-
-  z-index: 100;
-  transition: background-color 1s ease;
-  transition: color 0.5s ease;
-  cursor: pointer;
-}
-
-.reset {
   display: inline;
   height: 14px;
   max-width: 900px;
