@@ -338,6 +338,7 @@ ul.p_option_list li {
   border: 1px solid #FF7242;
   background-color: #262626;
   padding: 7px 15px;
+  font-size: 0.8em;
 }
 select {
   margin-top: 100px;
