@@ -216,7 +216,7 @@ body {
   width: 70px;
   height: 70px;
   border-radius: 100%;
-  border: 4px solid #1051B5;
+  border: 4px solid #42FFD5;
   cursor: pointer;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
   transition: border 0.5s ease;
@@ -227,7 +227,7 @@ body {
   width: 70px;
   height: 70px;
   border-radius: 100%;
-  border: 4px solid #CA0020;
+  border: 4px solid #FF425A;
   cursor: pointer;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
   transition: border 0.5s ease;
@@ -277,11 +277,11 @@ body {
 }
 
 .blue_box {
-  color: #1051B5;
+  color: #42FFD5;
 }
 
 .red_box {
-  color: #CA0020;
+  color: #FF425A;
 }
 
 
