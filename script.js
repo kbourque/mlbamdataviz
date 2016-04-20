@@ -272,6 +272,7 @@ var player = {
     //triggered when option is changed on drop down menu
     d3.selectAll(".option_container")
         .on('click', function() {
+          console.log("oc")
             var check = d3.select(this).property('id');
          newData = eval(d3.select(this).property('id'));
             if (check != 'reset') {
