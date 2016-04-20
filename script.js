@@ -620,9 +620,12 @@ $(document).ready(function () {
         }
     });
 
-    $('#reset').click( function() {
+    $('.reset').click( function() {
         $('.player_circle').removeClass('lol');
         $('.player_circle').removeClass('lol2');
         cancompare = 0;
+        $('.blue_box').text('');
+        $('.red_box').text('');
+
     })
 });
