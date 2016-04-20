@@ -245,7 +245,7 @@ var player = {
         .attr("transform", "translate("+ (w2/2) +","+(h2)+")")
         .text("Year");
 
-    d3.selectAll(".reset")
+    d3.selectAll("#reset")
         .on('click', function() {
            cancompare = 0;
             if (d3.select("#" + currplayerval).classed("pitcher")) {
