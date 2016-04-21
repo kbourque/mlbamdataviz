@@ -640,8 +640,6 @@ $(document).ready(function () {
           }*/
           console.log("reset?")
           d3.selectAll("svg").remove();
-          d3.selectAll('.linez').remove();
-          d3.selectAll('.circles').remove();
           d3.selectAll('.poster_section')
              .append('div')
              .attr('class', 'start_container')
