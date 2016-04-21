@@ -623,7 +623,7 @@ $(document).ready(function () {
             $(this).toggleClass('lol2');
         }
     });
-/*
+
     $('.reset').click( function() {
         $('.player_circle').removeClass('lol');
         $('.player_circle').removeClass('lol2');
@@ -631,5 +631,24 @@ $(document).ready(function () {
         $('.blue_box').text('');
         $('.red_box').text('');
 
-    })*/
+
+        cancompare = 0;
+         /*if (d3.select("#" + currplayerval).classed("pitcher")) {
+              lol.resetter(currplayer, lol, 1);
+          } else {
+              lol.resetter(currplayer, lol, 0);
+          }*/
+          console.log("reset?")
+          d3.selectAll("svg").remove();
+          d3.selectAll('.linez').remove();
+          d3.selectAll('.circles').remove();
+          d3.selectAll('.poster_section')
+             .append('div')
+             .attr('class', 'start_container')
+             .attr('position', 'relative')
+             .attr('top', '-1000')
+             .append('img')
+             .attr('class', 'start_sign')
+             .attr('src', 'media/start.png');
+    })
 });
