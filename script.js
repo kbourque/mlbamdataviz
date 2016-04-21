@@ -255,8 +255,6 @@ var player = {
              }*/
              console.log("reset?")
              d3.selectAll("svg").remove();
-             d3.selectAll('.linez').remove();
-             d3.selectAll('.circles').remove();
              d3.selectAll('.poster_section')
                 .append('div')
                 .attr('class', 'start_container')
@@ -627,12 +625,10 @@ $(document).ready(function () {
     $('.reset').click( function() {
         $('.player_circle').removeClass('lol');
         $('.player_circle').removeClass('lol2');
-        cancompare = 0;
+        cancompare = 1;
         $('.blue_box').text('');
         $('.red_box').text('');
 
-
-        cancompare = 0;
          /*if (d3.select("#" + currplayerval).classed("pitcher")) {
               lol.resetter(currplayer, lol, 1);
           } else {
