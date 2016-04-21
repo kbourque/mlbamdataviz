@@ -623,7 +623,7 @@ $(document).ready(function () {
             $(this).toggleClass('lol2');
         }
     });
-
+/*
     $('.reset').click( function() {
         $('.player_circle').removeClass('lol');
         $('.player_circle').removeClass('lol2');
@@ -631,5 +631,5 @@ $(document).ready(function () {
         $('.blue_box').text('');
         $('.red_box').text('');
 
-    })
+    })*/
 });
