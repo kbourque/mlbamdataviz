@@ -335,11 +335,29 @@ ul.p_option_list li {
 
 .reset {
   margin-left: 80px;
-  border: 1px solid #FF7242;
-  background-color: #262626;
-  padding: 7px 15px;
-  font-size: 0.8em;
+ display: inline;
+  height: 14px;
+  max-width: 900px;
+  border: 2px solid #FF7242;
+  border-radius: 5px;
+  color: #FF7242;
+  font-size: 0.9em;
+  padding: 10px 30px;
+  margin: 16px 20px;
+  text-align: center;
+  background-color: #333333;
+
+  z-index: 100;
+  transition: background-color 1s ease;
+  transition: color 0.5s ease;
+  cursor: pointer;
 }
+
+.reset:hover {
+  background-color: #FF7242;
+  color: white;
+}
+
 select {
   margin-top: 100px;
   font-size: 3em;

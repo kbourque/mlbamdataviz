@@ -247,12 +247,6 @@ var player = {
 
     d3.selectAll(".reset")
       .on('click', function() {
-           cancompare = 0;
-            /*if (d3.select("#" + currplayerval).classed("pitcher")) {
-                 lol.resetter(currplayer, lol, 1);
-             } else {
-                 lol.resetter(currplayer, lol, 0);
-             }*/
              console.log("reset?")
              d3.selectAll("svg").remove();
              d3.selectAll('.poster_section')
@@ -263,6 +257,7 @@ var player = {
                 .append('img')
                 .attr('class', 'start_sign')
                 .attr('src', 'media/start.png');
+            cancompare = 0;
 
         });
 
@@ -270,7 +265,6 @@ var player = {
     //triggered when option is changed on drop down menu
     d3.selectAll(".option_container")
         .on('click', function() {
-          console.log("oc")
             var check = d3.select(this).property('id');
          newData = eval(d3.select(this).property('id'));
             if (check != 'reset') {
@@ -298,6 +292,7 @@ var player = {
         .on('click', function() {
             var pitch = d3.select(this).classed("pitcher");
             if (cancompare == 0) {
+                console.log("cancompare is 0!!!")
                 // temp = eval(d3.select(this).property('id'));
                 // if (currplayer == temp) {
                 //     console.log('got in here');
@@ -310,6 +305,8 @@ var player = {
                 // }
                 currplayer = eval(d3.select(this).property('id'));
                 currplayerval = d3.select(this).property('id');
+                console.log(currplayer);
+                console.log(currplayerval);
                 cancompare = 1;
                 if (pitch) {
                     lol.resetter(currplayer, lol, 1);
@@ -317,6 +314,7 @@ var player = {
                     lol.resetter(currplayer, lol, 0);
                 }
             } else {
+                console.log(cancompare);
                 compplayer = eval(d3.select(this).property('id'));
                 // if (currplayer == temp) {
                 //     console.log('got in here');
@@ -634,7 +632,6 @@ $(document).ready(function () {
           } else {
               lol.resetter(currplayer, lol, 0);
           }*/
-          console.log("reset?")
           d3.selectAll("svg").remove();
           d3.selectAll('.poster_section')
              .append('div')
