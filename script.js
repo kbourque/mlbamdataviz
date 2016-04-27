@@ -67,8 +67,9 @@ var newData = 'WAR';
 var player = {
     ok:this,
     resetter:function(member, player, pitch) {
-        d3.selectAll("svg")
-        .remove();
+        d3.selectAll("svg").remove();
+        d3.selectAll(".start_container").remove();
+        d3.selectAll(".start_sign").remove();
         // newData2 = eval(d3.select(this).property('value'));
         this.start(member, player, pitch);
     },
@@ -251,6 +252,8 @@ var player = {
       .on('click', function() {
              console.log("reset?")
              d3.selectAll("svg").remove();
+             d3.selectAll(".start_container").remove();
+             d3.selectAll(".start_sign").remove();
              d3.selectAll('.poster_section')
                 .append('div')
                 .attr('class', 'start_container')
