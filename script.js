@@ -67,8 +67,9 @@ var newData = 'WAR';
 var player = {
     ok:this,
     resetter:function(member, player, pitch) {
-        d3.selectAll("svg")
-        .remove();
+        d3.selectAll("svg").remove();
+        d3.selectAll(".start_container").remove();
+        d3.selectAll(".start_sign").remove();
         // newData2 = eval(d3.select(this).property('value'));
         this.start(member, player, pitch);
     },
@@ -80,6 +81,8 @@ var player = {
                     .on('click', function() {
                         console.log(d3.select(this));
                         d3.select('.start_container')
+                            .remove();
+                        d3.select('.start_sign')
                             .remove();
                         currplayer = eval(d3.select(this).property('id'));
                         currplayerval = d3.select(this).property('id');
@@ -232,6 +235,8 @@ var player = {
     d3.selectAll(".reset")
       .on('click', function() {
              d3.selectAll("svg").remove();
+             d3.selectAll(".start_container").remove();
+             d3.selectAll(".start_sign").remove();
              d3.selectAll('.poster_section')
                 .append('div')
                 .attr('class', 'start_container')
@@ -692,6 +697,8 @@ $(document).ready(function () {
               lol.resetter(currplayer, lol, 0);
           }*/
           d3.selectAll("svg").remove();
+          d3.selectAll(".start_container").remove();
+          d3.selectAll(".start_sign").remove();
           d3.selectAll('.poster_section')
              .append('div')
              .attr('class', 'start_container')
