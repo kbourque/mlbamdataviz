@@ -184,24 +184,6 @@ var player = {
       .attr('fill', 'none');
 
 
-    // // // path
-    // lineGen2 = d3.svg.line()
-    //   .x(function(d) {
-    //     return xScale(d.Year);
-    //   })
-    //   .y(function(d) {
-    //     return yScale(d.RBIs);
-    //   })
-    //   .interpolate("linear");
-
-    // lines =vis.append('svg:path')
-    //     .attr('class', 'lines')
-
-    //   lines.attr('d', lineGen2(data))
-    //   .attr('stroke', '#1051B5')
-    //   .attr('stroke-width', 4)
-    //   .attr('fill', 'none');
-
 
     // points
     circles = vis.append("g")
@@ -221,18 +203,20 @@ var player = {
         })
         .attr("stroke-width", "4")
         .append("svg:title")
-        .text(function(d) { return d.x; })
+        .text(function(d) { return d.x; });
 
-    // circles.append("circle")
-    // .attr({
-    //         cx: function(d) {return xScale(d.Year);},
-    //         cy: function(d) {return yScale(d.RBIs);},
-    //         r: 8,
-    //         // fill: '#E8FFFC',
-    //         stroke: '#1051B5',
-    //         fill: '#FFFFE4'
-    //     })
-    //     .attr("stroke-width", "4")
+    // var tip = d3.tip()
+    //   .attr('class', 'd3-tip')
+    //   .offset([-10, 0])
+    //   .html(function(d) {
+    //     return d;
+    //   });
+
+    /* Initialize tooltip */
+    tip = d3.tip().attr('class', 'd3-tip').html(function(d) { return d.WAR; });
+
+/* Invoke the tip in the context of your visualization */
+    vis.call(tip);
 
     // now add titles to the axes
     vis.append("text")
@@ -247,7 +231,6 @@ var player = {
 
     d3.selectAll(".reset")
       .on('click', function() {
-             console.log("reset?")
              d3.selectAll("svg").remove();
              d3.selectAll('.poster_section')
                 .append('div')
@@ -270,7 +253,8 @@ var player = {
             if (check != 'reset') {
                  updateLegend(newData);
             if (cancompare > 0) {
-                if (d3.select("#" + compplayer).classed("pitcher")) {
+                console.log(compplayer);
+                if (d3.select("#" + compplayerval).classed("pitcher")) {
                     compare(compplayer, newData, 1);
                 } else {
                     compare(compplayer, newData, 0);
@@ -282,6 +266,27 @@ var player = {
             }
             }
         });
+        
+
+    // vis.selectAll("circle")
+    //     .on('mouseover', function() {
+    //         console.log("hello");
+    //     });
+
+vis.selectAll("#circles")
+      .data(dataset3)
+        .enter().append('svg:circle')
+        .attr({
+            id: 'tips',
+            cx: function(d) {return xScale(d.Year);},
+            cy: function(d) {return yScale(d.WAR);},
+            r: 15,
+            opacity: 0
+        })
+        .on('mouseover', tip.show)
+        .on('mouseout', tip.hide)
+
+   
 
     // d3.selectAll(".player_circle")
     //     .on('click', function() {
@@ -292,7 +297,6 @@ var player = {
         .on('click', function() {
             var pitch = d3.select(this).classed("pitcher");
             if (cancompare == 0) {
-                console.log("cancompare is 0!!!")
                 // temp = eval(d3.select(this).property('id'));
                 // if (currplayer == temp) {
                 //     console.log('got in here');
@@ -305,8 +309,6 @@ var player = {
                 // }
                 currplayer = eval(d3.select(this).property('id'));
                 currplayerval = d3.select(this).property('id');
-                console.log(currplayer);
-                console.log(currplayerval);
                 cancompare = 1;
                 if (pitch) {
                     lol.resetter(currplayer, lol, 1);
@@ -314,8 +316,8 @@ var player = {
                     lol.resetter(currplayer, lol, 0);
                 }
             } else {
-                console.log(cancompare);
                 compplayer = eval(d3.select(this).property('id'));
+                console.log(compplayer);
                 // if (currplayer == temp) {
                 //     console.log('got in here');
                 //     d3.selectAll("svg").remove();
@@ -326,6 +328,7 @@ var player = {
                 //     compplayer = temp;
                 // }
                 compplayerval = d3.select(this).property('id');
+                console.log(compplayerval);
                 if (cancompare == 1) {
                     cancompare = 2;
                 } else {
@@ -335,9 +338,11 @@ var player = {
                         .remove();
                 }
                 if (pitch) {
+                    d3.selectAll('#tips').remove();
                     compare(compplayer, newData, 1);
                 }
                 else {
+                    d3.selectAll('#tips').remove();
                     compare(compplayer, newData, 0);
                 }
         }
@@ -455,9 +460,10 @@ var player = {
 
 
     circles = vis.append("g")
+        .attr("id", "circles2")
         .selectAll("circle")
         .data(datasetcomp)
-        .enter()
+        .enter();
 
 
     circles.append("circle")
@@ -487,6 +493,40 @@ var player = {
             .attr("cy", function(d) {
                 return yScale(eval('d.' + stat));
             });
+
+       /* Initialize tooltip */
+    tip = d3.tip().attr('class', 'd3-tip').html(function(d) { return eval('d.'+stat); });
+
+/* Invoke the tip in the context of your visualization */
+    vis.call(tip);
+
+    vis.selectAll("#circles")
+      .data(dataset3)
+        .enter().append('svg:circle')
+        .attr({
+            id: 'tips',
+            cx: function(d) {return xScale(d.Season);},
+            cy: function(d) {return yScale(eval('d.'+stat));},
+            r: 15,
+            opacity: 0
+        })
+        .on('mouseover', tip.show)
+        .on('mouseout', tip.hide);
+
+    vis.selectAll("#circles")
+      .data(datasetcomp)
+        .enter().append('svg:circle')
+        .attr({
+            id: 'tips',
+            cx: function(d) {return xScale(d.Season);},
+            cy: function(d) {return yScale(eval('d.'+stat));},
+            r: 15,
+            opacity: 0
+        })
+        .on('mouseover', tip.show)
+        .on('mouseout', tip.hide);
+
+
         });
 
     }
@@ -544,6 +584,25 @@ var player = {
         .attr("text-anchor", "middle")
         .attr("transform", "translate("+ (padding/3+10) +","+(h2/2)+")rotate(-90)")
         .text(newData);
+
+    /* Initialize tooltip */
+    tip = d3.tip().attr('class', 'd3-tip').html(function(d) { return eval('d.'+newData); });
+
+    /* Invoke the tip in the context of your visualization */
+    vis.call(tip);
+
+    vis.selectAll("#circles")
+      .data(dataset3)
+        .enter().append('svg:circle')
+        .attr({
+            id: 'tips',
+            cx: function(d) {return xScale(d.Year);},
+            cy: function(d) {return yScale(eval('d.'+newData));},
+            r: 15,
+            opacity: 0
+        })
+        .on('mouseover', tip.show)
+        .on('mouseout', tip.hide)
     }
 }
 
