@@ -12,6 +12,10 @@ body {
   font-family: "Lato", "Helvetica", sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
 .top_header {
   top: 0;
   right: 0;
@@ -335,15 +339,15 @@ ul.p_option_list li {
 
 .reset {
   margin-left: 80px;
- display: inline;
-  height: 14px;
+  display: inline;
+  height: 12px;
   max-width: 900px;
-  border: 2px solid #FF7242;
+  border: 1px solid #FF7242;
   border-radius: 5px;
   color: #FF7242;
-  font-size: 0.9em;
-  padding: 10px 30px;
-  margin: 16px 20px;
+  font-size: 0.8em;
+  padding: 8px;
+  margin: 12px 20px;
   text-align: center;
   background-color: #333333;
 
@@ -354,7 +358,6 @@ ul.p_option_list li {
 }
 
 .reset:hover {
-  background-color: #FF7242;
   color: white;
 }
 
