@@ -704,6 +704,7 @@ $(document).ready(function () {
           d3.selectAll("svg").remove();
           d3.selectAll(".start_container").remove();
           d3.selectAll(".start_sign").remove();
+          d3.selectAll(".graph").remove();
           d3.selectAll('.poster_section')
              .append('div')
              .attr('class', 'start_container')
