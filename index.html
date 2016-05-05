@@ -80,6 +80,7 @@
           <div class="containz">
             <div class="calories"></div>
             <div class="gpa"></div>
+            <div class="lol"></div>
           </div>
         </div>
 
@@ -162,15 +163,25 @@
           });
 
 
+          var gpa = new RadialProgressChart('.lol', {
+            diameter: 50,
+            max: 4,
+            round: false,
+            series: [
+              {
+                value: 3.75,
+                color: ['red', '#7CFC00']
+              }
+            ],
+            center: function (d) {
+              return d.toFixed(2) + ' GPA'
+            }
+          });
+
+
           function getRandom(min, max) {
             return Math.random() * (max - min) + min;
           }
-
-          (function loop() {
-            calories.update(Math.round(getRandom(50, 800)));
-            gpa.update(getRandom(0.5, 3.8));
-            setTimeout(loop, 3000);
-          })();
 
     </script>
 
