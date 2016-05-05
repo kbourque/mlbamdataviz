@@ -123,19 +123,19 @@
 
       <script>
           var calories = new RadialProgressChart('.calories', {
-            diameter: 50,
+            diameter: 110,
             stroke: {
-              width: 20
+              width: 5,
             },
             shadow: {
               width: 0
             },
-            max: 500,
+            max: 800,
             round: true,
             series: [
               {
                 labelStart: '\uF105',
-                value: 500,
+                value: 400,
                 color: {
                   linearGradient: { x1: '0%', y1: '100%', x2: '50%', y2: '0%', spreadMethod: 'pad' },
                   stops: [
@@ -147,39 +147,68 @@
             center: {
               content: [function (value) {
                 return value
-              }, ' OF 800 CALS'],
-              y: 25
+              },],
+              y: 0
             }
           });
+          var calories = new RadialProgressChart('.gpa', {
+            diameter: 110,
+            stroke: {
+              width: 5,
+            },
+            shadow: {
+              width: 0
+            },
+            max: 800,
+            round: true,
+            series: [
+              {
+                labelStart: '\uF105',
+                value: 400,
+                color: {
+                  linearGradient: { x1: '0%', y1: '100%', x2: '50%', y2: '0%', spreadMethod: 'pad' },
+                  stops: [
+                    {offset: '0%', 'stop-color': '#fe08b5', 'stop-opacity': 1},
+                    {offset: '100%', 'stop-color': '#ff1410', 'stop-opacity': 1}
+                  ]}
+              }
+            ],
+            center: {
+              content: [function (value) {
+                return value
+              },],
+              y: 0
+            }
+          });
+
+
           var gpa = new RadialProgressChart('.gpa', {
-            diameter: 50,
-            max: 4,
-            round: false,
+            diameter: 110,
+            stroke: {
+              width: 5,
+            },
+            shadow: {
+              width: 0
+            },
+            max: 800,
+            round: true,
             series: [
               {
-                value: 3.75,
-                color: ['red', '#7CFC00']
+                labelStart: '\uF105',
+                value: 400,
+                color: {
+                  linearGradient: { x1: '0%', y1: '100%', x2: '50%', y2: '0%', spreadMethod: 'pad' },
+                  stops: [
+                    {offset: '0%', 'stop-color': '#fe08b5', 'stop-opacity': 1},
+                    {offset: '100%', 'stop-color': '#ff1410', 'stop-opacity': 1}
+                  ]}
               }
             ],
-            center: function (d) {
-              return d.toFixed(2) + ' GPA'
-            }
-          });
-
-
-
-          var gpa = new RadialProgressChart('.lol', {
-            diameter: 50,
-            max: 4,
-            round: false,
-            series: [
-              {
-                value: 3.75,
-                color: ['red', '#7CFC00']
-              }
-            ],
-            center: function (d) {
-              return d.toFixed(2) + ' GPA'
+            center: {
+              content: [function (value) {
+                return value
+              },],
+              y: 0
             }
           });
 

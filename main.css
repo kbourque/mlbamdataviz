@@ -506,17 +506,18 @@ section {
 
  .containz {
    text-align: center;
+   margin-left: -120px;
  }
 
  .containz div {
    display: inline-block;
-   padding: 20px;
+   padding: 50px;
  }
 
  .rbc-label-start {
    font-family: fontawesome;
    font-weight: bold;
-   font-size: 30px;
+   font-size: 0px;
  }
 
  .rbc-center-text {
@@ -525,7 +526,7 @@ section {
  }
 
  .calories .rbc-center-text-line0 {
-   font-size: 95px;
+   font-size: 30px;
  }
 
  .calories .rbc-center-text-line1 {
