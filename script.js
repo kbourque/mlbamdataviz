@@ -74,7 +74,7 @@ var player = {
         this.start(member, player, pitch);
     },
     start:function(player, lol, pitcher) {
-        d3.csv(player+'.csv', function(data){
+        d3.csv('data/'+player+'.csv', function(data){
             if (started == 0) {
                 console.log("hi")
                 d3.selectAll('.player_circle')
@@ -354,7 +354,7 @@ vis.selectAll("#circles")
     });
 
     function compare(player, stat, pitch) {
-        d3.csv(player+'.csv', function(data) {
+        d3.csv('data/'+player+'.csv', function(data) {
             if (pitch == 0) {
                 data.forEach(function(d){ d['Year'] = +d['Year']; });
                 data.forEach(function(d){ d['WAR'] = +d['WAR']; });
