@@ -77,6 +77,12 @@
         <div class="comparison_box">
           <div class="blue_box"></div>
           <div class="red_box"></div>
+          <div class="containz">
+            <div class="calories"></div>
+            <div class="gpa"></div>
+          </div>
+          <div class="graph">
+          </div>
         </div>
 
 
@@ -112,18 +118,12 @@
       <section class = "poster_section">
           <div class="start_container"><img class="start_sign" src="media/start.png">
           </div>
-          <div class="containz">
-            <div class="calories"></div>
-            <div class="gpa"></div>
-          </div>
-          <div class="graph">
-          </div>
       </section>
 
       <script>
 
           var calories = new RadialProgressChart('.calories', {
-            diameter: 200,
+            diameter: 50,
             max: 800,
             round: true,
             series: [
@@ -147,7 +147,7 @@
           });
 
           var gpa = new RadialProgressChart('.gpa', {
-            diameter: 200,
+            diameter: 50,
             max: 4,
             round: false,
             series: [
