@@ -446,13 +446,13 @@ section {
 .start_container {
   padding: 0px;
   max-width: 600px;
-  margin: 51px auto;
+  margin: 10px auto;
   position: relative;
   top: 400px;
 }
 .start_sign {
-  width: 600px;
-  margin: 10px -40px;
+  width: 350px;
+  margin: 0px 60px;
 }
 
 
