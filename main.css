@@ -220,7 +220,7 @@ a {
   width: 70px;
   height: 70px;
   border-radius: 100%;
-  border: 4px solid #1051B5;
+  border: 4px solid #FFA700;
   cursor: pointer;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
   transition: border 0.5s ease;
@@ -231,7 +231,7 @@ a {
   width: 70px;
   height: 70px;
   border-radius: 100%;
-  border: 4px solid #CA0020;
+  border: 4px solid #FF354F;
   cursor: pointer;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
   transition: border 0.5s ease;
@@ -243,7 +243,7 @@ a {
 .name_box {
   height: 14px;
   width: 140px;
-  top: 5px;
+  top: 2px;
   left: 39px;
   color: #FF7242;
   font-size: 0.9em;
@@ -255,7 +255,18 @@ a {
   border-radius: 5px;
 }
 
-
+.aggbar {
+  float: left;
+  width: 200px;
+  min-height: 100%;
+  top: 0;
+  left: 250px;
+  position: fixed;
+  z-index: 90;
+  background-color: #e6e6e6;
+  padding-top: 95px;
+  border-right: 1px solid #d9d9d9;
+}
 
 .lower_header {
   top: 40px;
@@ -279,11 +290,11 @@ a {
 }
 
 .blue_box {
-  color: #1051B5;
+  color: #FFA700;
 }
 
 .red_box {
-  color: #CA0020;
+  color: #FF354F;
 }
 
 
