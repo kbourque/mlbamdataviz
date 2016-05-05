@@ -253,6 +253,11 @@ a {
   margin: 5px 3px;
   position: absolute;
   border-radius: 5px;
+  transition: color 0.5s ease;
+}
+
+.default_color {
+  color: #595959;
 }
 
 .aggbar {
@@ -291,10 +296,13 @@ a {
 
 .blue_box {
   color: #FFA700;
+  transition: color 0.5s ease;
+
 }
 
 .red_box {
   color: #FF354F;
+  transition: color 0.5s ease;
 }
 
 
@@ -378,7 +386,7 @@ select {
 }
 .poster_section {
   margin: -50px auto;
-  margin-left: 300px;
+  margin-left: 400px;
   max-width: 2000px;
 }
 

@@ -271,7 +271,7 @@ var player = {
             }
             }
         });
-        
+
 
     // vis.selectAll("circle")
     //     .on('mouseover', function() {
@@ -291,7 +291,7 @@ vis.selectAll("#circles")
         .on('mouseover', tip.show)
         .on('mouseout', tip.hide)
 
-   
+
 
     // d3.selectAll(".player_circle")
     //     .on('click', function() {
@@ -626,6 +626,9 @@ $(document).ready(function () {
     $('.pitcher_list2').toggleClass('goAway');
     $('.b_button').toggleClass('button_selected');
     $('.p_option_list').toggleClass('goAway');
+    $('.name_box').toggleClass('default_color');
+    $('.name_box').text('Select players here');
+
 
 
     $('.b_button').click( function() {
@@ -658,10 +661,12 @@ $(document).ready(function () {
     });
 
     $('.player_circle').mouseenter( function() {
+      $('.name_box').removeClass('default_color');
       $('.name_box').text(this.alt);
     });
     $('.player_circle').mouseleave( function() {
-      $('.name_box').text('');
+      $('.name_box').toggleClass('default_color');
+      $('.name_box').text('Select players here');
     });
 
     $('.player_circle').click( function(event) {
