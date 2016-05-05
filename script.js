@@ -320,6 +320,7 @@ vis.selectAll("#circles")
     d3.selectAll(".player_circle")
         .on('click', function() {
             var pitch = d3.select(this).classed("pitcher");
+
             if (cancompare == 0) {
                 // temp = eval(d3.select(this).property('id'));
                 // if (currplayer == temp) {
@@ -725,6 +726,11 @@ $(document).ready(function () {
         d3.selectAll(".graph").remove();
         d3.selectAll(".start_sign").remove();
         d3.selectAll('.poster_section')
+
+          d3.selectAll("svg").remove();
+          d3.selectAll(".start_container").remove();
+          d3.selectAll(".start_sign").remove();
+          d3.selectAll(".graph").remove();
              .append('div')
              .attr('class', 'start_container')
              .attr('position', 'relative')
