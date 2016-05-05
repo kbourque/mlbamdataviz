@@ -182,7 +182,7 @@ var player = {
     vis.append('svg:path')
         .attr('class', 'lines')
       .attr('d', lineGen(data))
-      .attr('stroke', '#1051B5')
+      .attr('stroke', '#FFA700')
       .attr('stroke-width', 4)
       .attr('fill', 'none');
 
@@ -201,7 +201,7 @@ var player = {
             cy: function(d) {return yScale(d.WAR);},
             r: 8,
             // fill: '#E8FFFC',
-            stroke: '#1051B5',
+            stroke: '#FFA700',
             fill: '#FFFFE4'
         })
         .attr("stroke-width", "4")
@@ -453,7 +453,7 @@ vis.selectAll("#circles")
         .attr('class', 'linez')
 
       lines.attr('d', lineGen2(datasetcomp))
-      .attr('stroke', '#CA0020')
+      .attr('stroke', '#FF354F')
       .attr('stroke-width', 0)
       .attr('fill', 'none');
 
@@ -477,7 +477,7 @@ vis.selectAll("#circles")
             cy: function(d) {return yScale(eval('d.' + stat));},
             r: 8,
             fill: '#E8FFFC',
-            stroke: '#CA0020'
+            stroke: '#FF354F'
         })
         .attr("stroke-width", "0")
         .attr('class', 'circles')
