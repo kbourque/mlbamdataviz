@@ -125,7 +125,13 @@
 
           var calories = new RadialProgressChart('.calories', {
             diameter: 50,
-            max: 800,
+            stroke: {
+              width: 20
+            },
+            shadow: {
+              width: 0
+            },
+            max: 500,
             round: true,
             series: [
               {
