@@ -455,6 +455,12 @@ section {
 .start_sign {
   width: 350px;
   margin: 0px 60px;
+  user-drag: none;
+user-select: none;
+-moz-user-select: none;
+-webkit-user-drag: none;
+-webkit-user-select: none;
+-ms-user-select: none;
 }
 
 
@@ -506,11 +512,12 @@ section {
 
  .containz {
    text-align: center;
+   margin-left: -120px;
  }
 
  .containz div {
    display: inline-block;
-   padding: 20px;
+   padding: 50px;
  }
 
  .rbc-label-start {
