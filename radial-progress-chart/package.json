@@ -1,0 +1,71 @@
+{
+  "name": "radial-progress-chart",
+  "description": "A customizable Radial Progress Chart written on the top of D3.js.",
+  "version": "0.0.3",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/pablomolnar/radial-progress-chart.git"
+  },
+  "scripts": {
+    "test": "mocha",
+    "build": "node browserify.js && ./node_modules/uglify-js/bin/uglifyjs ./dist/radial-progress-chart.js -m -o ./dist/radial-progress-chart.min.js",
+    "hint": "./node_modules/jshint/bin/jshint index.js"
+  },
+  "dependencies": {
+    "d3": "^3.5.0"
+  },
+  "devDependencies": {
+    "browserify": "~10.2.4",
+    "mocha": "^2.2.5",
+    "uglify-js": "2.4.15",
+    "jshint": "2.8.0"
+  },
+  "main": "index.js",
+  "filename": "radial-progress-chart.min.js",
+  "keywords": [
+    "apple",
+    "watch",
+    "radial",
+    "bar",
+    "progress",
+    "chart",
+    "polar",
+    "d3"
+  ],
+  "author": {
+    "name": "Pablo Molnar"
+  },
+  "license": "MIT",
+  "spm": {
+    "dependencies": {
+      "d3": "^3.5.0"
+    },
+    "main": "index.js"
+  },
+  "gitHead": "16cfc50fa34fc2fe88b864660b1ef159b40c7d70",
+  "bugs": {
+    "url": "https://github.com/pablomolnar/radial-progress-chart/issues"
+  },
+  "homepage": "https://github.com/pablomolnar/radial-progress-chart#readme",
+  "_id": "radial-progress-chart@0.0.3",
+  "_shasum": "91e9a1b50dbed161475caecb30cd024b40269281",
+  "_from": "radial-progress-chart@latest",
+  "_npmVersion": "3.3.10",
+  "_nodeVersion": "0.12.7",
+  "_npmUser": {
+    "name": "pablomolnar",
+    "email": "pablomolnar@gmail.com"
+  },
+  "dist": {
+    "shasum": "91e9a1b50dbed161475caecb30cd024b40269281",
+    "tarball": "https://registry.npmjs.org/radial-progress-chart/-/radial-progress-chart-0.0.3.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "pablomolnar",
+      "email": "pablomolnar@gmail.com"
+    }
+  ],
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/radial-progress-chart/-/radial-progress-chart-0.0.3.tgz"
+}

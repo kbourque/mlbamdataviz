@@ -183,7 +183,7 @@ var player = {
         .attr('class', 'lines')
       .attr('d', lineGen(data))
       .attr('stroke', '#1051B5')
-      .attr('stroke-width', 4)
+      .attr('stroke-width', 8)
       .attr('fill', 'none');
 
 
@@ -204,7 +204,7 @@ var player = {
             stroke: '#1051B5',
             fill: '#FFFFE4'
         })
-        .attr("stroke-width", "4")
+        .attr("stroke-width", "8")
         .append("svg:title")
         .text(function(d) { return d.x; });
 
@@ -461,7 +461,7 @@ vis.selectAll("#circles")
     d3.selectAll(".linez")
         .transition()
         .duration(1000)
-        .attr('stroke-width', 4);
+        .attr('stroke-width', 8);
 
 
     circles = vis.append("g")
@@ -486,7 +486,7 @@ vis.selectAll("#circles")
         .transition()
         .duration(1000)
         .attr('fill', '#FFFFE4')
-        .attr('stroke-width', '4')
+        .attr('stroke-width', '8')
 
     vis.selectAll("circle")
             .data(dataset3)

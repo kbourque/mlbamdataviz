@@ -481,3 +481,38 @@ section {
   top: 100%;
   left: 0;
 }
+
+
+/*RADIAL PROGRESS*/
+ 
+ .containz {
+   text-align: center;
+ }
+ 
+ .containz div {
+   display: inline-block;
+   padding: 20px;
+ }
+ 
+ .rbc-label-start {
+   font-family: fontawesome;
+   font-weight: bold;
+   font-size: 30px;
+ }
+ 
+ .rbc-center-text {
+   font-family: 'Roboto', 'Myriad Set Pro', 'Lucida Grande', 'Helvetica Neue', Helvetica, Arial;
+   fill: white;
+ }
+ 
+ .calories .rbc-center-text-line0 {
+   font-size: 95px;
+ }
+ 
+ .calories .rbc-center-text-line1 {
+   font-size: 20px;
+ }
+ 
+ .gpa .rbc-center-text-line0 {
+   font-size: 30px;
+ }
