@@ -431,13 +431,7 @@ h3 {
     left: 0;
 }
 
-#q6-spine {
-    width: 720px;
-    height: 4px;
-    background: #857c78;
-    border-radius: 2px;
-    position: absolute;
-}
+
 
 section {
   margin: 10px 200px;
@@ -467,6 +461,8 @@ user-select: none;
 .goAway {
   display: none;
 }
+
+/* HOVERING */
 
 .d3-tip {
   line-height: 1;
@@ -517,7 +513,7 @@ user-select: none;
 
  .containz div {
    display: inline-block;
-   padding: 50px;
+   padding-right: 50px;
  }
 
  .rbc-label-start {
