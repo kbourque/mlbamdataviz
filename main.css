@@ -156,7 +156,7 @@ a {
 .circle_box {
   float: left;
   width: 250px;
-  min-height: 450px;
+  min-height: 440px;
   top: 140px;
   left: 0;
   position: fixed;
@@ -171,7 +171,7 @@ a {
   padding: 0px;
   list-style: none;
   width: 50px;
-  margin-top: -35px;
+  margin-top: -50px;
   position: absolute;
   left: 28px;
 }
@@ -180,7 +180,7 @@ a {
   padding: 0px;
   list-style: none;
   width: 50px;
-  margin-top: -35px;
+  margin-top: -50px;
   position: absolute;
   right: 68px;
 }
@@ -189,7 +189,7 @@ a {
   padding: 0px;
   list-style: none;
   width: 50px;
-  margin-top: -35px;
+  margin-top: -50px;
   position: absolute;
   left: 28px;
 }
@@ -198,7 +198,7 @@ a {
   padding: 0px;
   list-style: none;
   width: 50px;
-  margin-top: -35px;
+  margin-top: -50px;
   position: absolute;
   right: 68px;
 }
@@ -250,11 +250,9 @@ a {
   padding: 11px;
   text-align: center;
   z-index: 100;
-  margin: 10px 3px;
+  margin: 5px 3px;
   position: absolute;
   border-radius: 5px;
-  background-color: #0d0d0d;
-
 }
 
 
