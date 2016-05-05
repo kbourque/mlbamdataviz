@@ -63,6 +63,8 @@ var compplayerval;
 
 var newData = 'WAR';
 
+var removed = 0;
+
 //everything relying on data within baberuth.csv must be contained here
 var player = {
     ok:this,
@@ -75,8 +77,24 @@ var player = {
     },
     start:function(player, lol, pitcher) {
         d3.csv('data/'+player+'.csv', function(data){
+            if (removed == 1) {
+                d3.selectAll('.poster_section')
+                 .append('div')
+                 .attr('class', 'graph');
+
+                d3.selectAll('.aggbar')
+                    .append('div')
+                    .append('class', 'containz');
+
+                d3.selectAll('.containz')
+                    .append('div')
+                    .attr('class','gpa');
+
+                removed = 0;
+            }
+
+
             if (started == 0) {
-                console.log("hi")
                 d3.selectAll('.player_circle')
                     .on('click', function() {
                         console.log(d3.select(this));
@@ -246,6 +264,7 @@ var player = {
                 .attr('class', 'start_sign')
                 .attr('src', 'media/start.png');
             cancompare = 0;
+            removed = 1;
 
         });
 
@@ -701,10 +720,11 @@ $(document).ready(function () {
           } else {
               lol.resetter(currplayer, lol, 0);
           }*/
-          d3.selectAll("svg").remove();
-          d3.selectAll(".start_container").remove();
-          d3.selectAll(".start_sign").remove();
-          d3.selectAll('.poster_section')
+        d3.selectAll("svg").remove();
+        d3.selectAll(".start_container").remove();
+        d3.selectAll(".graph").remove();
+        d3.selectAll(".start_sign").remove();
+        d3.selectAll('.poster_section')
              .append('div')
              .attr('class', 'start_container')
              .attr('position', 'relative')
@@ -712,5 +732,7 @@ $(document).ready(function () {
              .append('img')
              .attr('class', 'start_sign')
              .attr('src', 'media/start.png');
+
+
     })
 });
