@@ -121,7 +121,6 @@
       </section>
 
       <script>
-
           var calories = new RadialProgressChart('.calories', {
             diameter: 50,
             max: 800,
@@ -145,7 +144,6 @@
               y: 25
             }
           });
-
           var gpa = new RadialProgressChart('.gpa', {
             diameter: 50,
             max: 4,
@@ -160,12 +158,9 @@
               return d.toFixed(2) + ' GPA'
             }
           });
-
-
           function getRandom(min, max) {
             return Math.random() * (max - min) + min;
           }
-
           (function loop() {
             calories.update(Math.round(getRandom(50, 800)));
             gpa.update(getRandom(0.5, 3.8));
