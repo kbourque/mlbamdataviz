@@ -296,12 +296,14 @@ a {
 
 .blue_box {
   color: #FFA700;
+  font-size: 1.2em;
   transition: color 0.5s ease;
 
 }
 
 .red_box {
   color: #FF354F;
+  font-size: 1.2em;
   transition: color 0.5s ease;
 }
 
@@ -501,35 +503,35 @@ section {
 
 
 /*RADIAL PROGRESS*/
- 
+
  .containz {
    text-align: center;
  }
- 
+
  .containz div {
    display: inline-block;
    padding: 20px;
  }
- 
+
  .rbc-label-start {
    font-family: fontawesome;
    font-weight: bold;
    font-size: 30px;
  }
- 
+
  .rbc-center-text {
    font-family: 'Roboto', 'Myriad Set Pro', 'Lucida Grande', 'Helvetica Neue', Helvetica, Arial;
    fill: white;
  }
- 
+
  .calories .rbc-center-text-line0 {
    font-size: 95px;
  }
- 
+
  .calories .rbc-center-text-line1 {
    font-size: 20px;
  }
- 
+
  .gpa .rbc-center-text-line0 {
    font-size: 30px;
  }
