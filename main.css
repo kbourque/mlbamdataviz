@@ -513,11 +513,16 @@ user-select: none;
  .containz {
    text-align: center;
    margin-left: -120px;
+   margin-bottom: 500px;
  }
 
  .containz div {
-   display: inline-block;
-   padding: 50px;
+   padding: 80px;
+ }
+
+ .gpa {
+   margin-bottom: -100px;
+
  }
 
  .rbc-label-start {
