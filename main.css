@@ -140,7 +140,7 @@ a {
   top: 0;
   left: 0;
   position: fixed;
-  z-index: 97;
+  z-index: 96;
   background-color: #333333;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
   padding-top: 95px;
@@ -156,7 +156,7 @@ a {
 .circle_box {
   float: left;
   width: 250px;
-  min-height: 450px;
+  min-height: 440px;
   top: 140px;
   left: 0;
   position: fixed;
@@ -171,7 +171,7 @@ a {
   padding: 0px;
   list-style: none;
   width: 50px;
-  margin-top: -35px;
+  margin-top: -50px;
   position: absolute;
   left: 28px;
 }
@@ -180,7 +180,7 @@ a {
   padding: 0px;
   list-style: none;
   width: 50px;
-  margin-top: -35px;
+  margin-top: -50px;
   position: absolute;
   right: 68px;
 }
@@ -189,7 +189,7 @@ a {
   padding: 0px;
   list-style: none;
   width: 50px;
-  margin-top: -35px;
+  margin-top: -50px;
   position: absolute;
   left: 28px;
 }
@@ -198,7 +198,7 @@ a {
   padding: 0px;
   list-style: none;
   width: 50px;
-  margin-top: -35px;
+  margin-top: -50px;
   position: absolute;
   right: 68px;
 }
@@ -220,7 +220,7 @@ a {
   width: 70px;
   height: 70px;
   border-radius: 100%;
-  border: 4px solid #1051B5;
+  border: 4px solid #FFA700;
   cursor: pointer;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
   transition: border 0.5s ease;
@@ -231,7 +231,7 @@ a {
   width: 70px;
   height: 70px;
   border-radius: 100%;
-  border: 4px solid #CA0020;
+  border: 4px solid #FF354F;
   cursor: pointer;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
   transition: border 0.5s ease;
@@ -243,21 +243,35 @@ a {
 .name_box {
   height: 14px;
   width: 140px;
-  top: 5px;
+  top: 2px;
   left: 39px;
   color: #FF7242;
   font-size: 0.9em;
   padding: 11px;
   text-align: center;
   z-index: 100;
-  margin: 10px 3px;
+  margin: 5px 3px;
   position: absolute;
   border-radius: 5px;
-  background-color: #0d0d0d;
-
+  transition: color 0.5s ease;
 }
 
+.default_color {
+  color: #595959;
+}
 
+.aggbar {
+  float: left;
+  width: 200px;
+  min-height: 100%;
+  top: 0;
+  left: 250px;
+  position: fixed;
+  z-index: 90;
+  background-color: #e6e6e6;
+  padding-top: 95px;
+  border-right: 1px solid #d9d9d9;
+}
 
 .lower_header {
   top: 40px;
@@ -281,11 +295,14 @@ a {
 }
 
 .blue_box {
-  color: #1051B5;
+  color: #FFA700;
+  transition: color 0.5s ease;
+
 }
 
 .red_box {
-  color: #CA0020;
+  color: #FF354F;
+  transition: color 0.5s ease;
 }
 
 
@@ -369,7 +386,7 @@ select {
 }
 .poster_section {
   margin: -50px auto;
-  margin-left: 300px;
+  margin-left: 400px;
   max-width: 2000px;
 }
 
@@ -429,13 +446,13 @@ section {
 .start_container {
   padding: 0px;
   max-width: 600px;
-  margin: 51px auto;
+  margin: 10px auto;
   position: relative;
   top: 400px;
 }
 .start_sign {
-  width: 600px;
-  margin: 10px -40px;
+  width: 350px;
+  margin: 0px 60px;
 }
 
 
