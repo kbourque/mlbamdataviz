@@ -182,7 +182,7 @@ var player = {
     vis.append('svg:path')
         .attr('class', 'lines')
       .attr('d', lineGen(data))
-      .attr('stroke', '#1051B5')
+      .attr('stroke', '#FFA700')
       .attr('stroke-width', 8)
       .attr('fill', 'none');
 
