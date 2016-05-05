@@ -301,6 +301,7 @@ vis.selectAll("#circles")
     d3.selectAll(".player_circle")
         .on('click', function() {
             var pitch = d3.select(this).classed("pitcher");
+
             if (cancompare == 0) {
                 // temp = eval(d3.select(this).property('id'));
                 // if (currplayer == temp) {
