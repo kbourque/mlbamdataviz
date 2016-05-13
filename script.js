@@ -69,7 +69,7 @@ var removed = 0;
 var player = {
     ok:this,
     resetter:function(member, player, pitch) {
-        d3.selectAll("svg").remove();
+        d3.selectAll(".graphsvg").remove();
         d3.selectAll(".start_container").remove();
         d3.selectAll(".start_sign").remove();
         // newData2 = eval(d3.select(this).property('value'));
@@ -81,14 +81,6 @@ var player = {
                 d3.selectAll('.poster_section')
                  .append('div')
                  .attr('class', 'graph');
-
-                d3.selectAll('.aggbar')
-                    .append('div')
-                    .append('class', 'containz');
-
-                d3.selectAll('.containz')
-                    .append('div')
-                    .attr('class','gpa');
 
                 removed = 0;
             }
@@ -252,7 +244,7 @@ var player = {
 
     d3.selectAll(".reset")
       .on('click', function() {
-             d3.selectAll("svg").remove();
+             d3.selectAll(".graphsvg").remove();
              d3.selectAll(".start_container").remove();
              d3.selectAll(".start_sign").remove();
              d3.selectAll('.poster_section')
@@ -289,6 +281,11 @@ var player = {
                     .remove();
             }
             }
+        });
+
+      d3.selectAll('.playerz')
+        .on('click', function() {
+          console.log('lololol');
         });
 
 
@@ -709,6 +706,11 @@ $(document).ready(function () {
         }
     });
 
+    // $('.playerz')
+    //     .click(function() {
+    //         console.log('lol');
+    //     })
+
     $('.reset').click( function() {
         $('.player_circle').removeClass('lol');
         $('.player_circle').removeClass('lol2');
@@ -721,17 +723,13 @@ $(document).ready(function () {
           } else {
               lol.resetter(currplayer, lol, 0);
           }*/
-        d3.selectAll("svg").remove();
+        d3.selectAll(".graphsvg").remove();
         d3.selectAll(".start_container").remove();
         d3.selectAll(".graph").remove();
         d3.selectAll(".start_sign").remove();
         d3.selectAll('.poster_section')
 
-          d3.selectAll("svg").remove();
-          d3.selectAll(".start_container").remove();
-          d3.selectAll(".start_sign").remove();
-          d3.selectAll(".graph").remove();
-          
+
           d3.selectAll('.poster_section')
              .append('div')
              .attr('class', 'start_container')

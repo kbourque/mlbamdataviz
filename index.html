@@ -37,9 +37,9 @@
           <div class="name_box"></div>
 
           <ol class="batter_list1">
-            <li><img id="baber" alt="Babe Ruth" class="player_circle" src="media/batter_pics/Babe_Ruth.png"></li>
-            <li><img id="albertp" alt="Albert Pujols" class="player_circle" src="media/batter_pics/Albert_Pujols.png"></li>
-            <li><img id="barryb" alt="Barry Bonds" class="player_circle" src="media/batter_pics/Barry_Bonds.png"></li>
+            <li><img id="baber" alt="Babe Ruth" class="player_circle playerz" src="media/batter_pics/Babe_Ruth.png"></li>
+            <li><img id="albertp" alt="Albert Pujols" class="player_circle playerz" src="media/batter_pics/Albert_Pujols.png"></li>
+            <li><img id="barryb" alt="Barry Bonds" class="player_circle playerz" src="media/batter_pics/Barry_Bonds.png"></li>
             <li><img id="honusw" alt="Honus Wagner" class="player_circle" src="media/batter_pics/Honus_Wagner.png"></li>
             <li><img id="joed" alt="Joe DiMaggio" class="player_circle" src="media/batter_pics/Joe_DiMaggio.png"></li>
           </ol>
@@ -120,7 +120,21 @@
       </section>
 
       <script>
-          var gpa = new RadialProgressChart('.gpa', {
+        d3.selectAll('.playerz')
+        .on('click', function() {
+          console.log('lololol');
+           d3.selectAll('.comparison_box')
+                    .append('div')
+                    .append('class', 'containz');
+
+            d3.selectAll('.containz')
+                    .append('div')
+                    .attr('class','gpa');
+        });
+      
+      
+      var reset = function() {
+        var gpa = new RadialProgressChart('.gpa', {
             diameter: 120,
             stroke: {
               width: 5,
@@ -240,6 +254,8 @@
               y: 0
             }
           });
+      }
+      reset();   
 
 
           function getRandom(min, max) {
