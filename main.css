@@ -510,6 +510,7 @@ user-select: none;
    text-align: center;
    margin-left: -120px;
    margin-bottom: 500px;
+   display: none;
  }
 
  .containz div {
